@@ -1,9 +1,19 @@
 import { defineComponent } from "vue";
 
-import "style.scss";
+import classes from "./style.module.scss";
+
+console.log(classes);
 
 export default defineComponent({
   setup() {
-    return <div class="test">test</div>;
+    return () => (
+      <>
+        <div class={classes.test}>
+          test
+          <span class={classes.b}>999999999</span>
+        </div>
+        <span class={classes.b}>6666</span>
+      </>
+    );
   },
 });
