@@ -1,5 +1,5 @@
 import { defineComponent } from "vue";
-import Editor from "./pages/editor/index";
+import Editor from "./pages/Editor/index";
 
 export default defineComponent({
   setup() {
