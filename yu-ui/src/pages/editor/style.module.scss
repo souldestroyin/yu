@@ -1,15 +1,10 @@
-.test {
-  color: red;
-
-  .b_agfdgafg {
-    color: blue;
-  }
+.left {
+  width: 300px;
+  border: 1px solid gray;
 }
 
-#a {
-  color: gray;
-}
-
-.b_agfdgafg {
-  color: green;
+.right {
+  flex: 1;
+  margin-left: 12px;
+  border: 1px solid gray;
 }
