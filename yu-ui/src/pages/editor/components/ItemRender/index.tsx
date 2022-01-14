@@ -21,15 +21,21 @@ const ItemRenderForDraggable = defineComponent({
   setup(props) {
     const { node, editor, style, ...others } = props;
 
-    function render() {
-      return (
+    // function render() {
+    //   return (
+    //     <h2 {...others} style={{ ...style }}>
+    //       这里是文本
+    //     </h2>
+    //   );
+    // }
+
+    return () => (
+      <Draggable>
         <h2 {...others} style={{ ...style }}>
           这里是文本
         </h2>
-      );
-    }
-
-    return () => <Draggable>{render()}</Draggable>;
+      </Draggable>
+    );
   },
 });
 
@@ -49,6 +55,7 @@ export const ItemRender = defineComponent({
       switch (props.node.getType()) {
         case "root":
           const children = props.node.getChildren();
+          console.log("children", children);
 
           return (
             <div>
