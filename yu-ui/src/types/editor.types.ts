@@ -22,3 +22,8 @@ export type Meta = {
     w: number,
     h: number
 }
+
+export enum EditorEvents {
+	NodePositionUpdated,
+	NodeChildrenUpdated
+}

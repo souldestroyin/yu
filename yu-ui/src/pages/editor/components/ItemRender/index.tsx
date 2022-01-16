@@ -30,7 +30,7 @@ const ItemRenderForDraggable = defineComponent({
     // }
 
     return () => (
-      <Draggable>
+      <Draggable >
         <h2 {...others} style={{ ...style }}>
           这里是文本
         </h2>

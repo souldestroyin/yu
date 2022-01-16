@@ -36,4 +36,8 @@ export default class Node {
     public getH() {
         return this.nodeData.h
     }
+
+    public add(child: Node) {
+        this.nodeData.children.push(child)
+    }
 }
