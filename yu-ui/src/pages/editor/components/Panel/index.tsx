@@ -4,6 +4,7 @@ import { defineComponent, ref, toRefs } from "vue";
 import { ItemRender } from "../ItemRender/index";
 
 export default defineComponent({
+  name: "Panel",
   props: {
     editor: {
       type: Editor,

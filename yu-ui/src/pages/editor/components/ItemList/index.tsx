@@ -5,6 +5,7 @@ import { UnWrapped } from "@/types/util.types";
 import { Actions } from "@/types/editor.types";
 
 export default defineComponent({
+  name: "ItemList",
   props: {
     editor: {
       type: Editor,
