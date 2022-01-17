@@ -1,7 +1,8 @@
-import { defineComponent } from "vue";
+import { defineComponent, ref } from "vue";
 import Node from "@/models/Node";
 import Editor from "@/models/Editor";
 import Draggable from "@/pages/Editor/components/Draggable";
+import { EditorEvents } from "../../../../types/editor.types";
 
 const ItemRenderForDraggable = defineComponent({
   props: {
@@ -52,6 +53,13 @@ export const ItemRender = defineComponent({
     },
   },
   setup(props) {
+    const ver = ref(0);
+
+    props.node.on(EditorEvents.NodeChildrenUpdated).subscribe(() => {
+      console.log("NodeChildrenUpdated");
+
+      ver.value++;
+    });
     return () => {
       switch (props.node.getType()) {
         case "root":
@@ -59,7 +67,7 @@ export const ItemRender = defineComponent({
           console.log("children", children);
 
           return (
-            <div>
+            <div key={ver.value}>
               {children.map((node) => {
                 return (
                   <ItemRender
@@ -77,7 +85,11 @@ export const ItemRender = defineComponent({
 
         case "text":
           return (
-            <ItemRenderForDraggable editor={props.editor} node={props.node} />
+            <ItemRenderForDraggable
+              editor={props.editor}
+              node={props.node}
+              key={ver.value}
+            />
           );
       }
     };
