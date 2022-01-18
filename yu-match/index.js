@@ -21,8 +21,6 @@ arr.forEach((label) => {
   res.push(transedFormConfig[label]);
 });
 
-const exportText = `
-${res.join("\n")}
-`;
+const exportText = res.join("\n");
 
 fs.writeFileSync("output", exportText, "utf-8");
