@@ -1,3 +1,5 @@
+code: order_items
+
 platformId
 shopId
 receiverCountry

@@ -1,8 +1,6 @@
 import { getPlatformShopList } from '@/api-new/shop'
-import { getZoneList, getGroupPositionList } from '@/api-new/warehouse'
+import { getFlagIds } from '@/components/marks/utils'
 import {
-  isOutOfStockList,
-  printStatusList,
   deliveryTermList,
   largeTypeList,
   platFlagList,
@@ -10,8 +8,7 @@ import {
   PLATEFORM_DELIVERY_LIST,
   CONTAIN_GIFT,
   TAX_LIST,
-  PICK_UP_STATUS,
-  OUT_OF_STOCK
+  logisticsSyncStatus
 } from '@/data-map/order'
 
 import {
@@ -19,12 +16,7 @@ import {
   overTimeList,
   logisticsNoExpireDayList
 } from '@/data-map/time'
-import { arrOwn } from '@/utils/array'
-
-import { platformIdOnChange } from '../utils'
-import { getFlagIds } from '@/components/marks/utils'
 export default {
-
   batchSearch: {
     label: '批量搜索',
     type: 'batch',
@@ -32,9 +24,10 @@ export default {
     selectValue: 1, // batchSearchType
     options: [
       { id: 1, name: '系统订单号', placeholder: '多条记录，用“回车”分隔，最多输入2000个记录（可直接将Excel文件一列粘贴入框内）' },
-      { id: 2, name: '平台订单号', placeholder: '可以录入平台订单号或平台子单号，多条记录，用 “回车”分隔，最多输入2000个记录（可直接将Excel文件一列粘贴入框内）' },
-      { id: 3, name: 'SKU编码', placeholder: '可以录入单品SKU编码或组合装SKU编码，多条记录，用 “回车”分隔，最多输入2000个记录（可直接将Excel文件一列粘贴入框内）' },
-      { id: 4, name: '物流单号', placeholder: '多条记录，用“回车”分隔，最多输入2000个记录（可直接将Excel文件一列粘贴入框内）' }],
+      { id: 2, name: '平台订单号', placeholder: '多条记录，用“回车”分隔，最多输入2000个记录（可直接将Excel文件一列粘贴入框内）' },
+      { id: 3, name: 'SKU编码', placeholder: '多条记录，用“回车”分隔，最多输入2000个记录（可直接将Excel文件一列粘贴入框内）' },
+      { id: 4, name: '物流单号', placeholder: '多条记录，用“回车”分隔，最多输入2000个记录（可直接将Excel文件一列粘贴入框内）' },
+      { id: 5, name: '外部仓单号', placeholder: '多条记录，用“回车”分隔，最多输入2000个记录（可直接将Excel文件一列粘贴入框内）' }],
     placeholder: ''
   },
   title1: {
@@ -45,87 +38,83 @@ export default {
     label: '业务单号',
     commonSearch: 3,
     type: 'input',
-    placeholder: '支持订单号、平台订单号、平台子单号',
+    placeholder: '支持订单号、平台订单号、平台子单号、外部仓单号、推送单号',
     value: ''
   },
-
   logisticsNo: {
     label: '物流单号',
-    type: 'input',
     commonSearch: 4,
+    type: 'input',
     placeholder: '支持物流单号、跟踪单号',
     value: ''
   },
-
   platformId: {
     label: '平台',
     type: 'select',
     options: [],
     commonSearch: 1,
     value: '',
-    onChange: platformIdOnChange
+    async onChange(val, formConfig) {
+      formConfig.shopId.value = []
+
+      const { data } = await getPlatformShopList({ deleted: 1, platformId: val })
+      formConfig.shopId.options = data
+    }
     // getValue: (params, formItem) => {
     //   params.platformId = formItem.value === '' ? -1 : formItem.value
     //   return params
     // }
   },
-
   shopId: {
     label: '店铺',
     commonSearch: 2,
     type: 'select',
-    options: [],
-    value: []
+    placeholder: '请选择',
+    value: [],
+    options: []
   },
-
   warehouseIds: {
     label: '仓库',
     type: 'select',
     commonSearch: 6,
     options: [],
-    value: [],
-    async onChange(val, formConfig) {
-      // formConfig.zoneId.value = []
-      // formConfig.groupPositionId.value = ''
-      console.log('val', val)
-      if (val) {
-        Promise.all([getZoneList(val), getGroupPositionList(val)]).then(([{ data: zone }, { data: group }]) => {
-          formConfig.zoneId.options = zone.map(({ zoneId, zoneNo }) => ({
-            id: zoneId,
-            name: zoneNo
-          }))
-
-          if (!arrOwn(formConfig.zoneId.value, formConfig.zoneId.options.map(o => o.id))) {
-            formConfig.zoneId.value = []
-          }
-
-          formConfig.groupPositionId.options = group
-
-          if (!arrOwn(formConfig.groupPositionId.value, formConfig.groupPositionId.options.map(o => o.id))) {
-            formConfig.groupPositionId.value = ''
-          }
-        })
-        // const { data } = await getZoneList(val)
-
-        // const res = await getGroupPositionList(val)
-      } else {
-        formConfig.zoneId.options = []
-        formConfig.groupPositionId.options = []
-      }
-    }
-  },
-  zoneId: {
-    label: '货区',
-    type: 'select',
-    options: [],
     value: []
+  },
+  haveCustomerNote: {
+    label: '客服备注',
+    type: 'select',
+    value: '',
+    options: [{ id: 1, name: '有备注' }, { id: 0, name: '无备注' }]
   },
   logisticsId: {
     label: '物流',
-    type: 'select',
     commonSearch: 5,
-    options: [],
-    value: []
+    type: 'select',
+    placeholder: '请选择',
+    value: [],
+    options: []
+  },
+  syncStatus: {
+    label: '物流同步状态',
+    type: 'select',
+    placeholder: '请选择',
+    value: '',
+    options: logisticsSyncStatus
+  },
+  buyerMessageList: {
+    label: '买家备注搜索',
+    value: '',
+    type: 'textarea',
+    getValue(params, { value }) {
+      var content = value ? value.split(/\r|\n|;|；/) : []
+      params.buyerMessageList = content.map(o => o.trim()).filter(o => o.length)
+      return params
+    }
+  },
+  csRemarkContent: {
+    label: '客服备注搜索',
+    value: '',
+    type: 'textarea'
   },
   haveBuyerMessage: {
     label: '买家备注',
@@ -149,11 +138,11 @@ export default {
       return params
     }
   },
-  haveCustomerNote: {
-    label: '客服备注',
+  tradeType: {
+    label: '订单类型',
     type: 'select',
-    value: '',
-    options: [{ id: 1, name: '有备注' }, { id: 0, name: '无备注' }]
+    options: tradeTypeList,
+    value: ''
   },
   platFlag: {
     label: '平台标识',
@@ -161,51 +150,25 @@ export default {
     options: platFlagList,
     value: []
   },
-  // csRemarkContent: {
-  //   label: '客服备注搜索',
-  //   value: '',
-  //   type: 'input'
-  // },
-  buyerMessageList: {
-    label: '买家备注搜索',
-    value: '',
-    type: 'textarea',
-    getValue(params, { value }) {
-      var content = value ? value.split(/\r|\n|;|；/) : []
-      params.buyerMessageList = content.map(o => o.trim()).filter(o => o.length)
-      return params
-    }
-  },
-  csRemarkList: {
-    label: '客服备注搜索',
-    value: '',
-    type: 'textarea',
-    getValue(params, { value }) {
-      var content = value ? value.split(/\r|\n|;|；/) : []
-      params.csRemarkList = content.map(o => o.trim()).filter(o => o.length)
-      return params
-    }
-  },
-  tradeType: {
-    label: '订单类型',
+
+  isTaxPaid: {
+    label: '已税状态',
     type: 'select',
-    options: tradeTypeList,
-    value: ''
+    value: '',
+    options: TAX_LIST
+    // getValue: (params, formItem) => {
+    //   params.isTaxPaid = formItem.value === '' ? -1 : formItem.value
+    //   return params
+    // }
   },
+
   deliveryTerm: {
     label: '付款方式',
     type: 'select',
     options: deliveryTermList,
     value: ''
   },
-  // isOutOfStock: {
-  //   label: '缺货状态',
-  //   type: 'select',
-  //   options: isOutOfStockList,
-  //   commonSearch: 8,
-  //   value: ''
-  // },
-  amountReceivable: { // [amountReceivableStart, amountReceivableEnd]
+  amountReceivable: {
     label: '应收金额',
     type: 'numrange',
     value: []
@@ -221,29 +184,6 @@ export default {
   //   type: 'input',
   //   value: ''
   // },
-  picklistPrintStatus: {
-    label: '分拣单打印',
-    type: 'select',
-    options: printStatusList,
-    value: ''
-  },
-  picklistNo: {
-    label: '分拣单号',
-    type: 'input',
-    value: ''
-  },
-  invoicePrintStatus: {
-    label: '税票打印',
-    type: 'select',
-    options: printStatusList,
-    value: ''
-  },
-  // domesticLogisticsPrintStatus: {
-  //   label: '国内运单打印',
-  //   type: 'select',
-  //   options: printStatusList,
-  //   value: ''
-  // },
   platformDelivery: {
     label: '平台发货状态',
     type: 'select',
@@ -254,6 +194,7 @@ export default {
       return params
     }
   },
+
   flagIds: {
     label: '标记',
     type: 'mark',
@@ -261,42 +202,6 @@ export default {
     value: [],
     options: [],
     getValue: getFlagIds
-  },
-  freezeStatus: {
-    label: '冻结状态',
-    type: 'select',
-    value: '',
-    options: [
-      { id: 1, name: '冻结订单' },
-      { id: 0, name: '非冻结订单' }]
-  },
-  groupPositionId: {
-    label: '货位分组名称',
-    type: 'select',
-    value: '',
-    options: []
-
-  },
-  compositionRadio: {
-    label: '组合筛选条件',
-    type: 'select',
-    value: '',
-    options: [
-      { id: 1, name: '包含' },
-      { id: 2, name: '仅包含' },
-      { id: 3, name: '不包含' }
-    ]
-
-  },
-  isTaxPaid: {
-    label: '已税状态',
-    type: 'select',
-    value: '',
-    options: TAX_LIST
-    // getValue: (params, formItem) => {
-    //   params.isTaxPaid = formItem.value === '' ? -1 : formItem.value
-    //   return params
-    // }
   },
   logisticsNoExpireDay: {
     label: '运单到期时间',
@@ -314,21 +219,9 @@ export default {
       { id: 1, name: '精确' }
     ]
   },
-  pickupStatus: {
-    label: '拣货状态',
-    type: 'select',
-    value: '',
-    options: PICK_UP_STATUS
-  },
-  warehouseOutOfStock: {
-    label: '库内缺货',
-    type: 'select',
-    value: '',
-    options: OUT_OF_STOCK
-  },
   title2: {
-    type: 'title',
-    label: '货品信息'
+    label: '货品信息',
+    type: 'title'
   },
   specNo: {
     label: 'SKU编码',
@@ -351,9 +244,11 @@ export default {
       { id: 1, name: '精确' }
     ]
   },
+
   specName: {
     label: 'SKU名称',
     type: 'selectinput',
+    // commonSearch: 8,
     inputValue: '',
     selectValue: 1,
     options: [
@@ -361,6 +256,7 @@ export default {
       { id: 1, name: '精确' }
     ]
   },
+
   goodsName: {
     label: 'SPU名称',
     type: 'selectinput',
@@ -441,6 +337,7 @@ export default {
     precision: 0,
     value: [] // [goodsTypeCountStart, goodsTypeCountEnd]
   },
+
   overTime: {
     label: '最晚发货时间',
     type: 'select',
@@ -474,23 +371,12 @@ export default {
     type: 'date-time-range',
     value: [] // [payTimeBegin, payTimeEnd]
   },
-  submitTime: {
-    label: '递交时间',
-    type: 'date-time-range',
-    value: [] // [submitTimeBegin, submitTimeEnd]
-  },
   checkTime: {
     label: '移入配货时间',
     type: 'quick-date-range',
     selectValue: '',
-    value: []
+    value: [] // [logisticsSyncTimeBegin, logisticsSyncTimeEnd]
   },
-  // deliveryTime: {
-  //   label: '发货时间',
-  //   type: 'daterange',
-  //   value: []
-  // },
-
   title3: {
     type: 'title',
     label: '收件信息'
@@ -517,4 +403,5 @@ export default {
     placeholder: '支持手机；固话搜索',
     value: ''
   }
+
 }

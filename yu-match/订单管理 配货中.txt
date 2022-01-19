@@ -1,3 +1,5 @@
+code: order_processing__instock
+
 platformId
 shopId
 warehouseIds

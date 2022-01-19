@@ -50,16 +50,11 @@ prop6
 搜索名称：发货信息
 
 isTaxPaid
-发货时间
 receiverCountry
 receiverName
 buyerNick
 receiverMobile
 logisticsName
 platformDelivery
-
-// 没有匹配上的
-物流同步状态 syncStatus
-
-
+syncStatus
 
