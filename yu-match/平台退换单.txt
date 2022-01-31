@@ -1,0 +1,21 @@
+code: platform_refund_order
+
+platformId
+shopId
+orderNo
+logisticsNo
+status
+processStatus
+type
+csStatus
+specNo
+goodsNo
+goodsId
+specId
+
+reason
+receiverCountry
+specName
+goodsName
+created
+modified
