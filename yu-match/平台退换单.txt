@@ -13,6 +13,7 @@ goodsNo
 goodsId
 specId
 
+订单信息
 reason
 receiverCountry
 specName

@@ -11,12 +11,14 @@ csStatus
 specNo
 flagIds
 
+订单信息
 orderPrice
 amount
 reasonId
 receiverCountry
 outPushStatus
 
+货品信息
 specName
 goodsNo
 goodsName
@@ -27,6 +29,7 @@ goodsClass
 goodsCount
 goodsTypeCount
 
+其他信息
 createTime
 apiRefundTime
 checkTime
