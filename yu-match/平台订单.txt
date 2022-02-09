@@ -1,0 +1,16 @@
+code：platform_orders
+
+tradeStatus
+tid
+oid
+deliveryTerm
+processStatus
+platformId
+shopId
+tidNumber
+payStatus
+refundStatus
+pd
+logisticsName
+tradeTimeBegin
+payTimeBegin
