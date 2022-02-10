@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>组件调研</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+<body>
+    <div id="app"></div>
+
+    <script>
+        const {createApp, reactive, computed} = Vue
+
+        const YuButton = {
+            name: 'YuButton',
+            data: function() {
+                return {
+                    count: 0
+                }
+            },
+            template: '<button v-on:click="count++">click {{count}}</button>'
+        }
+
+        // 组件变插件
+        YuButton.install = app => app.component('YuButton', YuButton)
+
+        // 组件库
+        const YuUi = {
+            YuButton,
+            install: app => {
+                app.use(YuButton)
+            }
+        }
+
+
+        createApp({
+            template: '<yu-button />'
+        }).use(YuUi).mount('#app')
+
+
+    </script>
+</body>
+</html>
