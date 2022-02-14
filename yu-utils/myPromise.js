@@ -32,13 +32,17 @@ class MyPromise {
   }
 
   then(cb) {
-    if(this.state === FULLFILLED) {
-      cb()
-    }
+    return new MyPromise((resolve, reject) => {
+      if(this.state === FULLFILLED) {
+        resolve(cb(this.value))
+      }
+  
+      if(this.state = PENDING) {
+        this.onFullfilledCbs.push(cb)
+      }
 
-    if(this.state =PENDING) {
-      this.cbs.push(cb)
-    }
+
+    })
   }
 }
 
