@@ -1,0 +1,120 @@
+平台商品id
+	Platform product id
+	Platform item id
+图片
+	Image
+	Pictures
+	Photos
+	Images
+下单时间
+	Order time
+	Order placement time
+策略名称
+	Policy name
+	Strategy name
+新建策略
+	New policy
+	Create strategy
+策略明细
+	Policy details
+	Strategy details
+新建订单自动处理策略
+	New order auto-processing policy
+	Create an automatic order processing strategy
+编辑订单自动处理策略
+	Edit order automation policy
+	Edit an automatic order processing strategy
+选择条件
+	Select conditions
+	Selecting conditions
+按订单信息指定
+	Specify by order information
+	Specified by order information
+无客服备注订单
+	No customer service note order
+	No customer service notes order
+是否合单满升级订单
+	Whether the combined order full upgrade orders
+	Whether the combined single full upgrade order
+订单已税状态
+	Order has tax status
+	Order taxed status
+排除指定组合sku
+	Exclude specified combination sku
+	Exclude specified combination skus
+每天固定时间自动处理
+	Automatic processing at a fixed time every day
+	Automatic processing at a fixed time each day
+未同步
+	Not synchronized
+	Unsynchronized
+同步成功
+	Synchronized successfully
+	Synchronization success
+是
+	Yes
+	TRUE
+否
+	No
+	FALSE
+货品列表
+	Product list
+	Goods list
+已选货品
+	Selected items
+	Selected goods
+品牌
+	Brand
+	Brands
+分类
+	Category
+	Classification
+Sku种类数
+	Sku species number
+	Number of sku types
+	Number of sku categories
+Sku数量
+	Number of sku's
+	Number of skus
+冻结状态
+	Frozen status
+	Frozen state
+收件地址
+	Receiving address
+	Delivery address
+买家支付运费
+	Buyer paid shipping
+	Buyer pays shipping costs
+隐藏冻结订单
+	Freeze order hide
+	Hide frozen orders
+订单冻结
+	Order freeze
+	Order freezing
+订单解冻
+	Order unfreezing
+	Order unfreeze
+取消订单
+	Order cancellation
+	Cancel orders
+操作时间
+	Time of operation
+	Operation time
+添加单品
+	Add item
+	Add goods
+添加组合装
+	Add combination
+	Add combination goods
+添加赠品
+	Add free gift
+	Add giveaways
+执行动作
+	Execution action
+	Execute action
+开始日期
+	Start date
+	Start time
+结束日期
+	End date
+	End time
