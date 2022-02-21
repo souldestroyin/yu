@@ -6,9 +6,9 @@
   "平台sku编码": ["Platform sku code"],
   "平台spu编码": ["Platform spu code"],
   "平台规格id": ["Platform specification id"],
-  "平台商品id": ["Platform product id", "Platform item id"],
+  "平台商品id": ["Platform product id"],
   "拉取商品信息": ["Pull product information"],
-  "图片": ["Image", "Pictures", "Photos", "Images"],
+  "图片": ["Image"],
   "平台/店铺": ["Platform/store"],
   "平台sku信息": ["Platform sku information"],
   "平台spu信息": ["Platform spu information"],
@@ -17,54 +17,33 @@
   "操作": ["Operation"],
   "平台订单号": ["Platform order number"],
   "付款状态": ["Payment status"],
-  "下单时间": ["Order time", "Order placement time"],
+  "下单时间": ["Order placement time"],
   "付款时间": ["Payment time"],
   "最晚发货": ["Latest delivery"],
   "无需处理": ["No processing required"],
-  "策略名称": ["Policy name", "Strategy name"],
+  "策略名称": ["Strategy name"],
   "启用": ["Enable"],
   "停用": ["Disable"],
-  "新建策略": ["New policy", "Create strategy"],
-  "策略明细": ["Policy details", "Strategy details"],
+  "新建策略": ["New strategy"],
+  "策略明细": ["Strategy details"],
   "自动处理时间": ["Automatic processing time"],
   "状态": ["Status"],
-  "新建订单自动处理策略": [
-    "New order auto-processing policy",
-    "Create an automatic order processing strategy"
-  ],
-  "编辑订单自动处理策略": [
-    "Edit order automation policy",
-    "Edit an automatic order processing strategy"
-  ],
-  "选择条件": ["Select conditions", "Selecting conditions"],
+  "新建订单自动处理策略": ["New order auto-processing strategy"],
+  "编辑订单自动处理策略": ["Edit order automation strategy"],
+  "选择条件": ["Select conditions"],
   "Icon：自动处理满足选中的条件且非缺货、非驳回、非商品全部退款、非商品部分退款、非可合并的订单": [
-    "Automatically process orders "
+    "Automatically process orders that meet the selected criteria and are not out of stock, Not rejected, Not a full refund for an item, Not a partial refund for an item, Or not combinable"
   ],
-  "that meet the selected criteria and are not out of stock, Not rejected, Not a full refund for an item, Not a partial refund for an item, Or not combinable": [
-    null
-  ],
-  "按订单信息指定": [
-    "Specify by order information",
-    "Specified by order information"
-  ],
+  "按订单信息指定": ["Specify by order information"],
   "无买家备注订单": ["No buyer notes order"],
-  "无客服备注订单": [
-    "No customer service note order",
-    "No customer service notes order"
-  ],
+  "无客服备注订单": ["No customer service note order"],
   "物流同步状态": ["Logistics synchronization status"],
-  "是否合单满升级订单": [
-    "Whether the combined order full upgrade orders",
-    "Whether the combined single full upgrade order"
-  ],
-  "订单已税状态": ["Order has tax status", "Order taxed status"],
+  "是否合单满升级订单": ["Whether the combined order full upgrade orders"],
+  "订单已税状态": ["Order taxed status"],
   "订单买家实付金额": ["Order buyer paid amount"],
   "按货品信息指定": ["Specify by goods information"],
   "排除指定单品sku": ["Exclude specified single product sku"],
-  "排除指定组合sku": [
-    "Exclude specified combination sku",
-    "Exclude specified combination skus"
-  ],
+  "排除指定组合sku": ["Exclude specified combination skus"],
   "已选条件": ["Selected conditions"],
   "订单信息： 店铺请选择": ["Order information: store please select"],
   "订单信息： 无买家备注订单": ["Order information: no buyer notes order"],
@@ -90,46 +69,34 @@
     "Item information: exclude specified combination sku please select"
   ],
   "订单自动处理时间": ["Automatic order processing time"],
-  "每天固定时间自动处理": [
-    "Automatic processing at a fixed time every day",
-    "Automatic processing at a fixed time each day"
-  ],
+  "每天固定时间自动处理": ["Automatic processing at a fixed time every day"],
   "Icon：北京时间，每天在设置的北京时间范围内进行自动处理，到达设置的时间立即开始自动处理": [
-    "Icon: beijing time, Automatic processing within the set beijing time "
-  ],
-  "range every day, Automatic processing starts immediately when the set time is reached": [
-    null
+    "Icon: beijing time, Automatic processing within the set beijing time range every day, Automatic processing starts immediately when the set time is reached"
   ],
   "按时间段自动处理": ["Automatic processing by time period"],
-  "Icon：北京时间，在设置的日期及北京时间": [null],
-  "范围内进行自动处理，到达设置的时间立即开始自动处理": [
+  "Icon：北京时间，在设置的日期及北京时间范围内进行自动处理，到达设置的时间立即开始自动处理": [
     "Beijing time, Automatic processing is performed within the set date and beijing time.Automatic processing within the set date and beijing time range, And automatic processing starts immediately when the set time is reached"
   ],
   "实时处理n小时前订单": ["Real-time processing n hours ago orders"],
-  "Icon：仅支持输入非负整数；举例：若设置": [null],
-  "实时处理n小时前订单，则每个订单进入待处理n小时后才会自动移入配货中": [
+  "Icon：仅支持输入非负整数；举例：若设置实时处理n小时前订单，则每个订单进入待处理n小时后才会自动移入配货中": [
     "Only supports inputting non-negative integers; example: if you set real-time processing n hours ago orders, Then each order into the pending processing n hours before automatically moved into the allocation"
   ],
-  "未同步": ["Not synchronized", "Unsynchronized"],
-  "同步成功": ["Synchronized successfully", "Synchronization success"],
-  "是": ["Yes", "TRUE"],
-  "否": ["No", "FALSE"],
+  "未同步": ["Unsynchronized"],
+  "同步成功": ["Synchronization success"],
+  "是": ["Yes"],
+  "否": ["No"],
   "已税": ["Taxed"],
   "未税": ["Untaxed"],
   "无": ["None"],
   "币种": ["Currency"],
   "条件": ["Conditions"],
   "订单金额": ["Order amount"],
-  "货品列表": ["Product list", "Goods list"],
-  "已选货品": ["Selected items", "Selected goods"],
-  "品牌": ["Brand", "Brands"],
-  "分类": ["Category", "Classification"],
-  "Sku种类数": [
-    "Sku species number",
-    "Number of sku types",
-    "Number of sku categories"
-  ],
-  "Sku数量": ["Number of sku's", "Number of skus"],
+  "货品列表": ["Product list"],
+  "已选货品": ["Selected goods"],
+  "品牌": ["Brand"],
+  "分类": ["Category"],
+  "Sku种类数": ["Number of Sku species"],
+  "Sku数量": ["Number of sku's"],
   "库存同步策略": ["Inventory synchronization strategy"],
   "执行方式": ["Execution method"],
   "平台sku名称": ["Platform sku name"],
@@ -157,7 +124,7 @@
   "应收金额": ["Receivable amount"],
   "平台发货状态": ["Platform shipping status"],
   "买家指定物流": ["Buyer specified logistics"],
-  "冻结状态": ["Frozen status", "Frozen state"],
+  "冻结状态": ["Frozen status"],
   "已税状态": ["Taxed status"],
   "是否包含赠品": ["Gift situation"],
   "Sku名称": ["Sku name"],
@@ -178,8 +145,8 @@
   "运单到期时间": ["Shipping order due date"],
   "最晚发货时间/最晚发货": ["Latest delivery time"],
   "系统订单号/erp订单号": ["System order number"],
-  "收件地址": ["Receiving address", "Delivery address"],
-  "买家支付运费": ["Buyer paid shipping", "Buyer pays shipping costs"],
+  "收件地址": ["Receiving address"],
+  "买家支付运费": ["Buyer pays shipping costs"],
   "买家实付": ["Buyer paid"],
   "物流单": ["Logistics order"],
   "分拣单": ["Sorting order"],
@@ -190,7 +157,7 @@
   "退款数量": ["Number of refunds"],
   "物流同步记录": ["Logistic synchronization records"],
   "订单明细": ["Order details"],
-  "隐藏冻结订单": ["Freeze order hide", "Hide frozen orders"],
+  "隐藏冻结订单": ["Hide frozen orders"],
   "显示冻结订单": ["Freeze order display"],
   "数据导出": ["Data export"],
   "导出选中行": ["Export selected rows"],
@@ -203,10 +170,10 @@
   "重新获取运单": ["Retrieve logistics orders"],
   "重新同步物流": ["Re-synchronise logistics order number"],
   "移入待处理": ["Move to pending"],
-  "订单冻结": ["Order freeze", "Order freezing"],
-  "订单解冻": ["Order unfreezing", "Order unfreeze"],
+  "订单冻结": ["Order freeze"],
+  "订单解冻": ["Order unfreeze"],
   "冻结原因": ["Reason for freeze"],
-  "取消订单": ["Order cancellation", "Cancel orders"],
+  "取消订单": ["Order cancel"],
   "清除已选标记": ["Clear selected markers"],
   "订单详情": ["Order details"],
   "订单信息": ["Order information"],
@@ -231,7 +198,7 @@
   "日志": ["Logs"],
   "操作内容": ["Operation content"],
   "操作人": ["Operator"],
-  "操作时间": ["Time of operation", "Operation time"],
+  "操作时间": ["Operation time"],
   "系统备注": ["System notes"],
   "系统备注搜索": ["System note search"],
   "外部仓推送状态": ["External warehouse push status"],
@@ -288,9 +255,9 @@
   "详细地址1": ["Address1"],
   "详细地址2": ["Address 2"],
   "添加货品": ["Add goods"],
-  "添加单品": ["Add item", "Add goods"],
-  "添加组合装": ["Add combination", "Add combination goods"],
-  "添加赠品": ["Add free gift", "Add giveaways"],
+  "添加单品": ["Add a single product"],
+  "添加组合装": ["Add a combination of products"],
+  "添加赠品": ["Add free gift"],
   "可发库存数": ["Number of available stock"],
   "可选sku": ["Selectable sku"],
   "已选sku": ["Selected sku"],
@@ -412,7 +379,7 @@
   "货品信息： 包含指定货品范围数量 请输入": [
     "Goods information: contains the quantity of the specified range of goods please enter"
   ],
-  "执行动作": ["Execution action", "Execute action"],
+  "执行动作": ["Execute action"],
   "赠送全部已选赠品": ["Give all selected gifts"],
   "已选赠品中随机赠送多份": [
     "Selected gifts in the randomly presented multiple copies"
@@ -438,9 +405,9 @@
   "时间类型": ["Time type"],
   "北京时间": ["Beijing time"],
   "平台时间": ["Platform time"],
-  "开始日期": ["Start date", "Start time"],
+  "开始日期": ["Start time"],
   "至": ["To"],
-  "结束日期": ["End date", "End time"],
+  "结束日期": ["End time"],
   "其余完全同【订单信息：下单时间 请选择】略": ["-"],
   "订单包含其中任一sku即为满足条件": [
     "Orders containing any of these skus are considered to meet the conditions"

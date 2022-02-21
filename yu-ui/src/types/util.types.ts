@@ -1,1 +1,0 @@
-export type UnWrapped<T> = T extends (infer U)[] ? U : T
