@@ -1,0 +1,24 @@
+{
+  "name": "yu-ui",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "rollup -c",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/plugin-proposal-optional-chaining": "^7.16.7",
+    "@babel/preset-env": "^7.16.11",
+    "@vue/babel-plugin-jsx": "^1.1.1",
+    "babel": "^6.23.0",
+    "babel-plugin-syntax-dynamic-import": "^6.18.0",
+    "babel-plugin-syntax-jsx": "^6.18.0",
+    "babel-preset-env": "^1.7.0",
+    "rollup": "^2.67.3",
+    "vue": "2.6.10"
+  }
+}
