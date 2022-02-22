@@ -28,18 +28,18 @@
             }
           }
         ]
-      ],
-      "plugins": [
-        [
-          "module-resolver",
-          {
-            "root": ["element-ui"],
-            "alias": {
-              "element-ui/src": "element-ui/lib"
-            }
-          }
-        ]
       ]
+      // "plugins": [
+      //   [
+      //     "module-resolver",
+      //     {
+      //       "root": ["element-ui"],
+      //       "alias": {
+      //         "element-ui/src": "element-ui/lib"
+      //       }
+      //     }
+      //   ]
+      // ]
     },
     "test": {
       "plugins": ["istanbul"],
