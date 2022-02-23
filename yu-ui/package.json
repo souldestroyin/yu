@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "rollup -c",
+    "build:comp": "rollup -c",
+    "build:theme": "gulp build --gulpfile ",
     "test": "jest --runInBand"
   },
   "keywords": [],
