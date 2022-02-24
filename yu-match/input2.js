@@ -1,160 +1,143 @@
-import { platformIdOnChange } from '../utils'
-import {
-  platformStatusArr,
-  refundStatusArr,
-  refundTypeArr,
-  systemStatusArr
-} from '@/data-map/refund'
-
 export const getFormConfig = (
-  platformList,
-  shopList,
-  countryList
+  warehouseList, warehouseId, classTree, warehouseTypeChange
 ) => {
-  const formConfig = {
-
+  const formConfig =
+  {
     batchSearch: {
       label: '批量搜索',
       type: 'batch',
+      superSearch: true,
       value: [1, ''],
       options: [
         {
           id: 1,
-          name: '平台退货订单号',
-          placeholder: '多条记录，用“回车”分隔，最多输入2000个记录（可直接将Excel文件一列粘贴入框内）'
-        },
-        {
-          id: 2,
-          name: '平台订单号',
-          placeholder: '多条记录，用“回车”分隔，最多输入2000个记录（可直接将Excel文件一列粘贴入框内）'
-        },
-        {
-          id: 4,
-          name: '平台退货子单号',
-          placeholder: '多条记录，用“回车”分隔，最多输入2000个记录（可直接将Excel文件一列粘贴入框内）'
-        },
-        {
-          id: 3,
-          name: '平台子单号',
-          placeholder: '多条记录，用“回车”分隔，最多输入2000个记录（可直接将Excel文件一列粘贴入框内）'
+          name: 'sku编码',
+          placeholder:
+            '多条记录，用“；”或“回车”分隔，最多输入2000个记录（可直接将Excel文件一列粘贴入框内）'
         }
       ],
       placeholder: ''
     },
-    orderNo: {
-      label: '业务单号',
-      type: 'input',
-      placeholder: '支持平台退货订单号、平台订单号、平台子单号、平台退货子单号',
-      commonSearch: 3,
-      value: ''
-    },
-    logisticsNo: {
-      label: '物流单号',
-      type: 'input',
-      commonSearch: 4,
-      value: ''
-    },
-    platformId: {
-      label: '平台',
-      type: 'select',
-      options: platformList,
-      commonSearch: 1,
-      value: '',
-      onChange: platformIdOnChange
-    },
-    shopId: {
-      label: '店铺',
-      commonSearch: 2,
-      type: 'select',
-      options: shopList,
-      value: []
-    },
-    status: {
-      label: '平台状态',
-      commonSearch: 5,
-      value: '',
-      options: platformStatusArr,
-      type: 'select'
-    },
-    processStatus: {
-      label: '系统状态',
-      commonSearch: 6,
-      value: '',
-      options: systemStatusArr,
-      type: 'select'
-    },
-    type: {
-      label: '退换类型',
-      commonSearch: 7,
+    // title1: {
+    //   label: '业务信息',
+    //   type: 'title'
+    // },
+    // baseInfo: {
+    //   label: '',
+    //   type: 'select-input',
+    //   inputValue: '',
+    //   selectValue: 'specNo',
+    //   options: [
+    //     { id: 'specNo', name: 'SKU编码' },
+    //     { id: 'specName', name: 'SKU名称' },
+    //     { id: 'goodsNo', name: 'SPU编码' },
+    //     { id: 'goodsName', name: 'SPU名称' }
+    //   ]
+    // },
+    warehouseType: {
+      label: '仓库类型',
       type: 'select',
       value: '',
-      options: refundTypeArr
+      options: warehouseList,
+      onChange: warehouseTypeChange
     },
-    csStatus: {
-      label: '退换阶段',
-      commonSearch: 8,
+    warehouseId: {
+      label: '仓库名称',
       type: 'select',
-      value: '',
-      options: refundStatusArr
-    },
-    reason: {
-      label: '退货原因',
-      value: '',
-      type: 'input'
-    },
-    receiverCountry: {
-      label: '国家',
       value: [],
-      options: countryList,
-      type: 'select'
+      options: warehouseId
     },
     specNo: {
-      label: '平台SKU编码',
+      label: 'SKU编码',
       type: 'select-input',
-      value: [1, ''],
-      mark: 32
-    },
-    specName: {
-      label: '平台SKU名称',
-      type: 'select-input',
-      value: [1, ''],
+      value: [0, ''],
       mark: 16
     },
-    goodsNo: {
-      label: '平台SPU编码',
+    specName: {
+      label: 'SKU名称',
       type: 'select-input',
-      value: [1, ''],
+      value: [0, ''],
       mark: 8
     },
     goodsName: {
-      label: '平台SPU名称',
-      type: 'select-input',
-      value: [1, ''],
-      mark: 4
-    },
-    goodsId: {
-      label: '平台商品ID',
+      label: 'SPU名称',
       type: 'select-input',
       value: [1, ''],
       mark: 2
     },
-    specId: {
-      label: '平台规格ID',
+    goodsNo: {
+      label: 'SPU编码',
+      type: 'select-input',
+      value: [1, ''],
+      mark: 4
+    },
+    barcode: {
+      label: '货品条码',
       type: 'select-input',
       value: [1, ''],
       mark: 1
+    },
+    defect: {
+      label: '正残品显示',
+      type: 'select',
+      value: '',
+      options: [
+        { id: 0, name: '只显示正品' },
+        { id: 1, name: '只显示残品' }
+      ]
     },
     created: { // [createdBegin, createdEnd]
       label: '创建时间',
       type: 'daterange',
       value: []
     },
-    modified: { // // [modifiedBegin, modifiedEnd]
-      label: '修改时间',
-      type: 'daterange',
+    classIds: {
+      label: '分类',
+      type: 'select-tree',
+      value: [],
+      options: classTree
+    },
+    // title2: {
+    //   type: 'title',
+    //   label: '库存信息'
+    // },
+    stockNum: {
+      label: '库存数量',
+      type: 'num-range',
+      superSearch: true,
+      value: []
+    },
+    avaliableNum: {
+      label: '可发库存',
+      type: 'num-range',
+      value: []
+    },
+    salesNum: {
+      label: '库存低于',
+      type: 'select',
+      superSearch: true,
+      value: '',
+      options: [
+        { id: 1, name: '7天销量' },
+        { id: 2, name: '14天销量' },
+        { id: 3, name: '30天销量' }
+      ]
+    },
+    oneWeekNum: {
+      label: '7天销量',
+      type: 'num-range',
+      value: []
+    },
+    twoWeeksNum: {
+      label: '14天销量',
+      type: 'num-range',
+      value: []
+    },
+    thirtyDaysNum: {
+      label: '30天销量',
+      type: 'num-range',
       value: []
     }
   }
-
   return formConfig
 }
