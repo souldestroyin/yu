@@ -5,8 +5,8 @@
       <router-link to="/about">About</router-link> -->
 
       <el-button>vvvv</el-button>
-      <yu-button>ddd</yu-button>
-      <yu-radio v-model="value" :options="options"/>
+      <!-- <yu-button>ddd</yu-button> -->
+      <!-- <yu-radio v-model="value" :options="options"/> -->
     </div>
     <!-- <router-view/> -->
   </div>

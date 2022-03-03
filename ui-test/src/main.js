@@ -6,13 +6,13 @@ import ElementUI from 'element-ui';
 
 // eslint-disable-next-line
 /* eslint-disable */
-import YuUi from 'yu-ui'
+// import YuUi from 'yu-ui'
 
 import 'element-ui/lib/theme-chalk/index.css';
 Vue.config.productionTip = false
 
 Vue.use(ElementUI);
-Vue.use(YuUi)
+// Vue.use(YuUi)
 
 new Vue({
   router,
