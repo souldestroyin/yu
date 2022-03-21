@@ -1,4 +1,7 @@
-平台子单号	Platform sub-order number
+平台退货订单号	Platform return order number
+平台订单号	Platform order number
+平台退货子单号	Platform return sub order number
+平台子单号	Platform sub order number
 平台状态	Platform Status
 	
 	
@@ -9,106 +12,85 @@
 	
 	
 	
-平台订单序列号	Platform Order Serial Number
-支付状态	Payment Status
-	
-	
-退款状态/退货状态	
 	
 	
 	
-买家指定物流/指定物流	Buyer specified logistics
-平台下单时间	Platform order time
-平台支付时间/平台付款时间	Platform payment time
-平台最晚发货时间	Platform latest delivery time
-有异常	Exception
-无异常	No exception
+	
+	
+	
+	
+	
+系统状态	System Status
+	
+退货类型/退换类型	Return Type
+	
+	
+	
+退货阶段/退换阶段	Return stage
+	
+	
+退货原因/退换原因	Return reason
+原收件人	Original Recipient
+电话	Landline
+创建时间/创建	Creation Time
+修改时间	Modify time
+订单下单时间	Order Placement Time
+系统订单状态	System order status
+申请退款金额	Refund amount requested
+实际退款金额	Actual Refund Amount
+子单详情	Sub-order details
+退回单价	Refund unit price
+退回数量	Refund quantity
+退回货款	Refund amount
 递交	Submit
-恢复	Recovery
-系统状态	System status
-配送服务	Shipment Service Level
-客户网名	Nickname
-客户邮箱	E-mail
-邮费	Postage
-总优惠	Total discount
-应收金额	Amount receivable
-已付金额	Amount Paid
-佣金	Commission
-已收金额	Amount Received
-款到发货金额	Cash on delivery amount
-货到付款金额	Cash on delivery amount
-退款金额	Refund amount
-订单来源	Order source
+退回物流	Return to logistics
+退回仓库	Return to warehouse
+退货类型	Return Type
+退货阶段/退换阶段	Return stage
+退款时间/退款	Refund time
+原收件地址	Original Receiving Address
+退回总货款	Total amount returned
+退回邮费	Refund Postage
+退回总金额	Total amount returned
+换出订单生成点	Exchange out order generation point
 	
-子订单类型	Sub-order type
-货品编码	Item Code
-规格编码	Specification Code
-货品名	Item name
-规格名	Specification name
-标价	Price
-调整金额	Adjustment amount
-子单优惠	Sub-order discount
-总价	Total price
-分摊优惠	Apportioned discount
-分摊后总价	Total price after apportionment
-分摊邮费	Assessed postage
-已付	Paid
-退款单编号	Refund Order Number
-退款数量	Refund Quantity
-同步订单	Sync Order
-选择店铺	Select Store
-选择下载方式	Select download method
-按原始单号	By original order number
-按下载时间	By download time
-	
-	
-	
-头程物流	First-haul logistics
-头程物流单号	First-haul logistics order number
-商品定制信息	Customised information
-商品图片	Images
-商品单价	Price
-商品成交价	Transaction price
-预估商品成本	Estimated Cost of Goods
-实际商品成本	Actual cost of goods
-订单币种	Order Currency
-订单总货款	Total order value
-订单邮费收入	Order postage revenue
-订单优惠	Order Discount
-预估订单佣金	Estimated order commission
-预估订单收款	Estimated Order Receipts
-预估订单货品成本	Estimated cost of goods for orders
-预估邮费成本	Estimated Postage Costs
-预估订单总成本	Estimated total order cost
-预估订单毛利润	Estimated gross profit on orders
-预估订单销售毛利润率	Estimated gross profit margin on order sales
-订单实收款	Actual Order Receipts
-实际订单邮费	Actual Order Postage
-实际订单货品成本	Actual order cost of goods
-实际订单佣金	Actual order commission
-其他费用	Other charges
-实际订单总成本	Total actual order cost
-订单销售额	Order Sales
-实际订单毛利润	Actual order gross profit
-实际订单销售毛利润率	Actual order sales gross profit margin
-订单币种（单行）	Order currency (single line)
-订单总货款（单行）	Total order purchase price (single line)
-订单邮费收入（单行）	Order postage income (single line)
-订单优惠（单行）	Order discount (single line)
-预估订单佣金（单行）	Estimated order commission (single line)
-预估订单收款（单行）	Estimated order receipts (single line)
-预估订单货品成本（单行）	Estimated order cost of goods (single line)
-预估邮费成本（单行）	Estimated postage cost (single line)
-预估订单总成本（单行）	Estimated total cost of order (single line)
-预估订单毛利润（单行）	Estimated order gross profit (single line)
-预估订单销售毛利润率（单行）	Estimated gross profit margin on order sales (single line)
-订单实收款（单行）	Actual order receipts (single line)
-实际订单邮费（单行）	Actual order postage (single line)
-实际订单货品成本（单行）	Actual order cost of goods (single line)
-实际订单佣金（单行）	Actual order commission (single line)
-其他费用（单行）	Other expenses (single line)
-实际订单总成本（单行）	Actual total cost of order (single line)
-订单销售额（单行）	Order sales (single line)
-实际订单毛利润（单行）	Actual order gross profit (single line)
-实际订单销售毛利润率（单行）	Actual order sales gross profit margin (single line)
-系统创建时间	System creation time
+退回货品总数	Total Returned Goods
+待入库货品总数	Total number of goods to be warehoused
+已入库货品总数	Total number of incoming items
+编辑中	In Edit
+待入库	Pending
+已入库	In-stock
+全部	All
+ERP订单号	System order number
+订单信息	Order Information
+状态类型	Status Type
+货品信息	Item Information
+金额	Amount
+仓配信息	Warehouse Information
+联系信息	Contact Information
+时间	Time
+编辑	Edit
+移入待入库	Move in pending storage
+取消	Cancel
+返回编辑中	Back to editing in progress
+停止等待	Stop waiting
+停止等待的原因	Reasons to stop waiting
+恢复	Resume
+推送	Push
+系统订单信息	System order information
+平台订单信息	Platform order information
+平台退换单	Platform Return Order
+关联入库单	Associated incoming orders
+换出订单	Exchanging out order
+入库单号	Inbound order number
+入库状态	Inbound Status
+入库仓库	Inbound warehouse
+入库数量	Inbound Quantity
+请输入单号或引用订单	Please enter the order number or quote the order
+退款币种	Refund Currency
+换出总货款	Total amount of goods exchanged
+换出邮费	Exchange Postage
+换出总金额	Total amount exchanged
+退回总货款	Total amount refunded
+退回邮费	Refund of postage
+退回总金额	Total amount refunded

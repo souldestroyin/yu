@@ -27,7 +27,7 @@ http.createServer(function (req, res) {
 handler.on('error', function (err) {
     console.error('Error:', err.message)
 })
-
+ 
 
 handler.on('*', function (event) {
     console.log('Received *', event.payload.action);
