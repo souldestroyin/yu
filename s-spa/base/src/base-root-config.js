@@ -9,12 +9,16 @@ registerApplication({
   activeWhen: ["/"],
 });
 
-// registerApplication({
-//   name: "@base/navbar",
-//   app: () => System.import("@base/navbar"),
-//   activeWhen: ["/"]
-// });
+registerApplication({
+  name: "@app/vue3",
+  app: () => System.import("@app/vue3"),
+  activeWhen: ["/app"]
+});
 
 start({
   urlRerouteOnly: true,
 });
+
+System.import("@app/vue3").then(res => {
+  console.log(res);
+})
