@@ -1,9 +1,0 @@
-退回总货款
-	Total amount returned
-	Total amount refunded
-退回邮费
-	Refund Postage
-	Refund of postage
-退回总金额
-	Total amount returned
-	Total amount refunded
