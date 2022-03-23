@@ -16,7 +16,7 @@
 	export default{
     data() {
       return {
-        msg: 'xxx'
+        msg: 'msg'
       }
     },
 		created() {
