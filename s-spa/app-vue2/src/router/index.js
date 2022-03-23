@@ -1,17 +1,14 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
+import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/Home.vue'
-
-Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/',
+    path: '/vue2',
     name: 'Home',
     component: Home
   },
   {
-    path: '/about',
+    path: '/vue2/about',
     name: 'About',
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
@@ -20,9 +17,8 @@ const routes = [
   }
 ]
 
-const router = new VueRouter({
-  mode: 'history',
-  base: '/app1',
+const router = createRouter({
+  history: createWebHistory('/app'),
   routes
 })
 

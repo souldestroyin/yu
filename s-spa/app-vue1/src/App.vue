@@ -1,5 +1,7 @@
 <template>
   <div id="app">
+    <h1>app1</h1>
+    {{msg}}
     <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
@@ -7,6 +9,24 @@
     <router-view/>
   </div>
 </template>
+
+<script type="text/javascript">
+	import { eventBus } from '@base/root-config'
+	console.log(eventBus)
+	export default{
+    data() {
+      return {
+        msg: 'xxx'
+      }
+    },
+		created() {
+      eventBus.on('calling',(msg) =>{
+        console.log('msg',msg)
+        this.msg = msg
+      })
+    }
+	}
+</script>
 
 <style>
 #app {

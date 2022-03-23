@@ -1,13 +1,8 @@
 <template>
   <div id="nav">
-    <h1>app3</h1>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link> |
-    <router-link to="/vue2/">jump to app2</router-link>
-
-    <div>
-      <button @click="handleSend">传值</button>
-    </div>
+    <h1>app2</h1>
+    <!-- <router-link to="/">Home</router-link> |
+    <router-link to="/about">About</router-link> -->
   </div>
   <router-view/>
 </template>
