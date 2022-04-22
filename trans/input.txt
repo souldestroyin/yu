@@ -1,0 +1,1185 @@
+平台	Platform
+店铺	Stores
+业务单号	Business order number
+平台订单状态	Platform order status
+	
+	
+	
+	
+	
+	
+	
+	
+	
+平台sku编码	Platform sku code
+平台spu编码	Platform spu code
+平台规格id	Platform specification id
+平台商品id	Platform product id
+拉取商品信息	Pull product information
+图片	Image
+平台/店铺	Platform/store
+平台sku信息	Platform sku information
+平台spu信息	Platform spu information
+平台id	Platform id
+订单	Orders
+操作	Operation
+	
+	
+	
+平台订单号	Platform order number
+平台订单状态	Platform order status
+付款状态	Payment status
+下单时间	Order time
+付款时间	Payment time
+最晚发货	Latest delivery
+无需处理	No processing required
+	
+策略名称	Policy name
+启用	Enable
+停用	Disable
+新建策略	New policy
+策略名称	Policy name
+策略明细	Policy details
+自动处理时间	Automatic processing time
+状态	Status
+操作	Operation
+	
+	
+新建订单自动处理策略	New order auto-processing policy
+编辑订单自动处理策略	Edit order automation policy
+选择条件	Select conditions
+Icon：自动处理满足选中的条件且非缺货、非驳回、非商品全部退款、非商品部分退款、非可合并的订单	Automatically process orders 
+that meet the selected criteria and are not out of stock, Not rejected, Not a full refund for an item, Not a partial refund for an item, Or not combinable
+按订单信息指定	Specify by order information
+店铺	Stores
+无买家备注订单	No buyer notes order
+无客服备注订单	No customer service note order
+物流同步状态	Logistics synchronization status
+是否合单满升级订单	Whether the combined order full upgrade orders
+订单已税状态	Order has tax status
+订单买家实付金额	Order buyer paid amount
+按货品信息指定	Specify by goods information
+排除指定单品sku	Exclude specified single product sku
+排除指定组合sku	Exclude specified combination sku
+已选条件	Selected conditions
+订单信息： 店铺请选择	Order information: store please select
+订单信息： 无买家备注订单	Order information: no buyer notes order
+订单信息： 无客服备注订单	Order information: no customer service notes order
+订单信息： 物流同步状态请选择	Order information: logistics synchronization status please select
+订单信息： 是否合单满升级订单请选择	Order information: whether the combined order full upgrade orders please select
+订单信息： 订单已税状态请选择	Order information: order taxed status please select
+订单信息： 订单买家实付金额请选择	Order information: order buyer paid amount please select
+货品信息： 排除指定单品sku请选择	Item information: exclude the specified single sku please select
+货品信息： 排除指定组合sku请选择	Item information: exclude specified combination sku please select
+订单自动处理时间	Automatic order processing time
+每天固定时间自动处理	Automatic processing at a fixed time every day
+Icon：北京时间，每天在设置的北京时间范围内进行自动处理，到达设置的时间立即开始自动处理	Icon: beijing time, Automatic processing within the set beijing time 
+range every day, Automatic processing starts immediately when the set time is reached
+按时间段自动处理	Automatic processing by time period
+Icon：北京时间，在设置的日期及北京时间
+范围内进行自动处理，到达设置的时间立即开始自动处理	Beijing time, Automatic processing is performed within the set date and beijing time.Automatic processing within the set date and beijing time range, And automatic processing starts immediately when the set time is reached
+实时处理n小时前订单	Real-time processing n hours ago orders
+Icon：仅支持输入非负整数；举例：若设置
+实时处理n小时前订单，则每个订单进入待处理n小时后才会自动移入配货中	Only supports inputting non-negative integers; example: if you set real-time processing n hours ago orders, Then each order into the pending processing n hours before automatically moved into the allocation
+未同步	Not synchronized
+同步成功	Synchronized successfully
+是	Yes
+否	No
+已税	Taxed
+未税	Untaxed
+无	None
+币种	Currency
+条件	Conditions
+订单金额	Order amount
+货品列表	Product list
+已选货品	Selected items
+品牌	Brand
+分类	Category
+Sku种类数	Sku species number
+Sku数量	Number of sku's
+	
+库存同步策略	Inventory synchronization strategy
+店铺	Stores
+执行方式	Execution method
+	
+	
+	
+平台sku编码	Platform sku code
+平台sku名称	Platform sku name
+平台规格id	Platform specification id
+平台spu编码	Platform spu code
+平台spu名称	Platform spu name
+平台商品id	Platform product id
+按店铺配置策略	Configuration strategy by store
+批量编辑	Batch edit
+清空	Clear
+店铺	Stores
+执行方式	Execution method
+同步比例	Synchronization ratio
+固定值	Fixed value
+启用状态	Enable status
+操作	Operation
+编辑	Edit
+图片	Pictures
+店铺	Stores
+平台sku编码	Platform sku code
+平台sku名称	Platform sku name
+执行方式	Execution method
+同步比例	Synchronization ratio
+固定值	Fixed value
+启用状态	Enable status
+操作	Operation
+编辑	Edit
+	
+平台	Platform
+店铺	Stores
+业务单号	Business order number
+物流单号	Logistics order number
+物流/物流公司	Logistics company
+仓库	Warehouse
+Sku编码	Sku code
+平台商品id	Platform product id
+订单状态	Order status
+	
+	
+订单类型	Order type
+	
+	
+	
+标记	Mark
+买家备注	Buyer notes
+	
+买家备注搜索	Buyer notes search
+客服备注	Customer notes
+客服备注搜索	Customer note search
+付款方式	Payment method
+	
+平台标识	Platform business
+应收金额	Receivable amount
+平台发货状态	Platform shipping status
+	
+买家指定物流	Buyer specified logistics
+冻结状态	Frozen status
+	
+已税状态	Taxed status
+	
+	
+是否包含赠品	Gift situation
+	
+Sku名称	Sku name
+Spu编码	Spu code
+Spu名称	Spu name
+平台sku编码	Platform sku code
+平台spu编码	Platform spu code
+平台sku名称	Platform sku name
+货品独立属性	Independent properties
+品牌	Brands
+分类	Classification
+单品自定义属性1	Item custom properties 1
+单品自定义属性2	Item custom properties 2
+单品自定义属性3	Item custom properties 3
+单品自定义属性4	Item custom properties 4
+单品自定义属性5	Item custom properties 5
+单品自定义属性6	Item custom properties 6
+国家	Country
+收件人	Recipient
+昵称	Nickname
+联系方式	Contact details
+Sku总数	Total number of skus
+Sku种类数	Number of sku types
+运单到期时间	Shipping order due date
+最晚发货时间/最晚发货	Latest delivery time
+下单时间	Order time
+付款时间	Payment time
+系统订单号/erp订单号	System order number
+平台订单号	Platform order number
+收件地址	Receiving address
+买家支付运费	Buyer paid shipping
+买家实付	Buyer paid
+物流单	Logistics order
+分拣单	Sorting order
+	
+异常类型	Type of exception
+	
+	
+	
+	
+	
+	
+	
+异常提示	Exception alerts
+退款状态	Refund status
+无退款	No refunds
+退款数量	Number of refunds
+物流同步记录	Logistic synchronization records
+订单明细	Order details
+隐藏冻结订单	Freeze order hide
+显示冻结订单	Freeze order display
+数据导出	Data export
+导出选中行	Export selected rows
+导出全部	Export all
+自定义导出	Customize export
+导出范围	Export range
+	
+导出模板	Export template
+批量操作	Batch operations
+更换物流	Change logistics
+重新获取运单	Retrieve logistics orders
+重新同步物流	Re-synchronise logistics order number
+移入待处理	Move to pending
+订单冻结	Order freeze
+订单解冻	Order unfreezing
+冻结原因	Reason for freeze
+取消订单	Order cancellation
+清除已选标记	Clear selected markers
+订单详情	Order details
+订单信息	Order information
+其他信息	Other information
+时间	Time
+平台订单信息	Platform order information
+付款状态	Payment status
+平台下单时间	Platform order time
+平台付款时间	Platform payment time
+系统sku信息	Sku information
+图片	Photos
+Sku信息	Sku information
+Spu信息	Spu information
+尺寸	Size
+长	Length
+宽	Width
+高	Height
+重量	Weight
+标价	Price
+平台sku信息	Platform sku information
+组合sku信息	Combination information
+基本信息	Basic information
+单品数	Number of items
+备注	Remarks
+日志	Logs
+操作内容	Operation content
+操作人	Operator
+操作时间	Time of operation
+	
+平台	Platform
+店铺	Stores
+业务单号	Business order number
+物流单号	Logistics order number
+物流/物流公司	Logistics company
+仓库	Warehouse
+Sku编码	Sku code
+平台商品id	Platform product id
+平台标识	Platform business
+	
+	
+	
+订单类型	Order type
+	
+	
+	
+标记	Mark
+物流同步状态	Logistics synchronization status
+	
+	
+买家备注	Buyer notes
+	
+买家备注搜索	Buyer notes search
+客服备注	Customer notes
+客服备注搜索	Customer note search
+系统备注	System notes
+系统备注搜索	System note search
+付款方式	Payment method
+	
+外部仓推送状态	External warehouse push status
+	
+	
+外部仓单号	External warehouse order number
+应收金额	Receivable amount
+平台发货状态	Platform shipping status
+	
+买家指定物流/指定物流	Buyer specified logistics
+已税状态	Taxed status
+	
+	
+是否包含赠品	Gift situation
+	
+物流单打印	Logistics order printing
+	
+发货单打印	Shipping order printing
+分拣单打印	Sorting order printing
+税票打印	Tax invoice printing
+分拣单号	Sorting order number
+原单配送方式	Platform order delivery method
+	
+	
+验货状态	Inspection status
+	
+称重状态	Weighing status
+	
+Sku名称	Sku name
+Spu编码	Spu code
+Spu名称	Spu name
+平台sku编码	Platform sku code
+平台spu编码	Platform spu code
+平台sku名称	Platform sku name
+货品独立属性	Independent properties
+品牌	Brands
+分类	Classification
+单品自定义属性1	Item custom properties 1
+单品自定义属性2	Item custom properties 2
+单品自定义属性3	Item custom properties 3
+单品自定义属性4	Item custom properties 4
+单品自定义属性5	Item custom properties 5
+单品自定义属性6	Item custom properties 6
+国家	Country
+收件人	Recipient
+昵称	Nickname
+联系方式	Contact details
+Sku总数	Total number of skus
+Sku种类数	Number of sku types
+运单到期时间	Shipping order due date
+最晚发货时间/最晚发货	Latest delivery time
+下单时间	Order time
+付款时间	Payment time
+移入配货时间/移入配货	Move in allocation time
+发货时间	Shipping time
+订单状态	Order status
+	
+	
+	
+	
+	
+	
+	
+系统订单号	System order number
+平台订单号	Platform order number
+退款状态	Refund status
+	
+	
+买家实付	Buyer paid
+收件地址	Delivery address
+跟踪单号	Tracking number
+单价	Price
+数量	Quantity
+订单详情	Order details
+订单重发	Order resend
+批量恢复订单	Batch order restoration
+重新推送订单	Re-push orders
+返回待处理	Return to pending
+标记	Mark
+平台订单	Platform orders
+物流同步记录	Logistic synchronization records
+订单明细	Order details
+数据导出	Data export
+导出选中行	Export selected rows
+导出全部	Export all
+自定义导出	Customize export
+导出范围	Export range
+	
+导出模板	Export template
+	
+币种	Currency
+预估重量	Estimated weight
+首公里预报批次号	First kilometer forecast lot number
+预估体积	Estimated volume
+商品信息	Commodity information
+货品信息	Goods information
+货品扩展信息	Product extension information
+价格	Price
+预估成本价	Estimated cost
+货款	Payment
+子单备注	Sub-order notes
+其他信息	Other information
+总货款	Total payment
+买家支付邮费	Buyer pays postage
+优惠	Discount
+买家实付	Buyer paid
+总金额	Total amount
+已付金额	Paid amount
+佣金	Commission
+预估货品成本	Estimated cost of goods
+预估邮费成本	Estimated postage cost
+总成本	Total cost
+预估毛利	Estimated gross profit
+证件类型	Document type
+	
+	
+证件号码	Id number
+手机	Cell phone
+固话	Landline
+邮箱	E-mail
+国家	Country
+省/州	Province/state
+市	City
+区	District
+邮编	Zip code
+详细地址1	Address1
+详细地址2	Address 2
+添加货品	Add goods
+添加单品	Add item
+添加组合装	Add combination
+添加赠品	Add free gift
+可发库存数	Number of available stock
+可选sku	Selectable sku
+已选sku	Selected sku
+确定删除该条商品吗？	Are you sure you want to delete this item?
+申报信息	Declare information
+申报名称	Declaration name
+	
+申报方式	Declaration method
+	
+生效方式	Effective method
+	
+金额（usd）	Amount (usd)
+重量（kg）	Weight (kg)
+海关编码	Hs code
+备注	Remarks
+重发	Reissue
+冻结	Freeze
+合单	Combined order
+X日达	X-day delivery
+定制	Customized
+定制	Customized
+已发货	Shipped
+有退款	With refund
+临期	Overdue
+取消失败	Cancellation failed
+	
+平台	Platform
+店铺	Stores
+业务单号	Business order number
+物流单号	Logistics order number
+物流/物流公司	Logistics company
+仓库	Warehouse
+Sku编码	Sku code
+平台商品id	Platform product id
+平台标识	Platform business
+	
+	
+	
+订单类型	Order type
+	
+	
+	
+标记	Mark
+运单获取状态	Logistics order acquisition status
+	
+	
+物流同步状态	Logistics synchronization status
+	
+	
+买家备注	Buyer notes
+	
+买家备注搜索	Buyer notes search
+客服备注	Customer notes
+客服备注搜索	Customer note search
+系统备注	System notes
+系统备注搜索	System note search
+子单备注	Sub-order notes
+子单备注搜索	Sub-order notes search
+付款方式	Payment method
+	
+订单总货款	Total order amount
+币种	Currency
+冻结状态	Frozen state
+	
+应收金额	Receivable amount
+平台发货状态	Platform shipping status
+	
+买家指定物流/指定物流	Buyer specified logistics
+已税状态	Taxed status
+	
+	
+是否包含赠品	Gift situation
+	
+运单到期时间	Shipping order due date
+	
+	
+	
+	
+	
+下单天数	Number of days to place the order
+驳回原因	Reason for rejection
+预估重量	Estimated weight
+Sku名称	Sku name
+Spu编码	Spu code
+Spu名称	Spu name
+平台sku编码	Platform sku code
+平台spu编码	Platform spu code
+平台sku名称	Platform sku name
+货品独立属性	Independent properties
+品牌	Brands
+分类	Classification
+单品自定义属性1	Item custom properties 1
+单品自定义属性2	Item custom properties 2
+单品自定义属性3	Item custom properties 3
+单品自定义属性4	Item custom properties 4
+单品自定义属性5	Item custom properties 5
+单品自定义属性6	Item custom properties 6
+国家	Country
+省/州	Province/state
+市	City
+收件人	Recipient
+昵称	Nickname
+联系方式	Contact details
+Sku总数	Total number of skus
+Sku种类数	Number of sku types
+货品特殊属性	Goods special properties
+	
+	
+	
+	
+	
+	
+	
+	
+	
+最晚发货时间/最晚发货	Latest delivery time
+下单时间	Order time
+付款时间	Payment time
+物流同步时间	Logistics synchronisation time
+常见情况	Common situations
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+系统订单号	System order number
+平台订单号	Platform order number
+退款状态	Refund status
+	
+	
+买家实付	Buyer paid
+收件地址	Delivery address
+预估毛利	Estimated gross profit
+预估重量	Estimated weight
+商品自定义项	Product customization items
+单价	Price
+数量	Quantity
+订单详情	Order details
+切换为列表	Switch to list
+切换为卡片	Switch to card
+隐藏冻结订单	Hide frozen orders
+展示冻结订单	Show frozen orders
+移入配货中	Moving into allocation
+	
+	
+	
+批量操作	Batch operations
+更换仓库	Change of warehouse
+更换物流	Change logistics
+	
+	
+	
+	
+批量添加赠品	Batch add gifts
+批量清空赠品	Batch emptying of gifts
+批量换货	Bulk exchange
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+批量拆分缺货货品	Batch splitting of out-of-stock items
+	
+	
+	
+	
+	
+	
+获取物流单	Obtain logistics order
+预物流同步	Pre-logistics synchronization
+合并订单	Consolidate orders
+	
+取消订单	Cancel orders
+修改收货地址	Modify shipping address
+修改申报信息	Modify declaration information
+	
+	
+	
+	
+	
+	
+	
+	
+	
+批量修改备注	Batch modification of notes
+订单冻结	Order freezing
+订单解冻	Order unfreeze
+清除异常标记	Clear exception mark
+批量采购	Bulk purchase
+	
+	
+	
+生成采购单	Generate purchase orders
+拆分订单	Splitting orders
+	
+	
+	
+	
+换货	Exchange goods
+拆分撤回	Split withdrawal
+合并撤回	Combined withdrawal
+已逾期，请尽快处理！	Overdue, Please process as soon as possible!
+配置处理时间后，待处理页面仅展示今日该时间点之前下单的订单	After configuring the processing time, The pending page will only display orders placed before that point in time today
+缺货建议	Out of stock suggestions
+平台订单	Platform orders
+物流同步记录	Logistic synchronization records
+订单明细	Order details
+数据导出	Data export
+导出选中行	Export selected rows
+导出全部	Export all
+自定义导出	Customize export
+导出范围	Export range
+	
+导出模板	Export template
+	
+策略名称	Strategy name
+分组名称	Subgroup name
+状态	Status
+启用	Enable
+停用	Disable
+重置	Reset
+搜索	Search
+订单处理	Order processing
+新建策略	Create strategy
+分组名称	Subgroup name
+策略名称	Strategy name
+优先级	Priority
+优先级列，鼠标移上按钮显示：更改	Edit
+策略明细	Strategy details
+添加赠品	Add giveaways
+赠送方式	Gifting method
+状态	Status
+操作	Operation
+编辑	Edit
+复制	Copy
+停用	Disable
+启用	Enable
+日志	Logs
+操作人	Operator
+操作内容	Operation content
+操作时间	Operation time
+赠品策略明细	Giveaway strategy details
+策略名称	Strategy name
+分组名称	Subgroup name
+查看分组详情	View group details
+优先级	Priority
+保存	Save
+选择条件	Selecting conditions
+按订单信息指定	Specified by order information
+店铺	Stores
+订单货品数量	Number of goods on order
+订单金额（包含邮费）	Order amount (including postage)
+订单金额（不包含邮费）	Order amount (excluding postage)
+下单时间	Order placement time
+付款时间	Payment time
+按货品信息指定	Specify by goods information
+排除条件需与按订单信息指定条件配合使用。 例：配置策略条件【订单金额（包含邮费）美元10-100，排除指定sku-a】的意思为：订单排除“sku-a”后剩余货品的订单金额（包含邮费）属于美元10-100。	Exclusion conditions need to be used in conjunction with the conditions specified by order information. Example: configure the policy condition [order amount (including postage) $ 10-100, Exclude the specified sku-a] means: the order excludes "sku-a" after the remaining goods order amount (including postage) belongs to the $ 10-100.
+包含指定数量单品sku	Contains a specified number of individual skus
+排除指定单品sku	Exclude specified single product sku
+包含指定数量组合sku	Contains a specified number of combination skus
+排除指定组合sku	Exclude specified combination skus
+包含指定数量spu	Contains a specified number of spus
+排除指定spu	Exclude specified spu
+包含指定数量平台商品	Includes a specified number of platform items
+排除指定平台商品	Exclusion of designated platform items
+包含指定货品范围数量	Include the quantity of the specified range of goods
+已选条件	Selected conditions
+订单信息：店铺 请选择	Order information: shop please select
+订单信息： 订单货品数量 新建	Order information: order quantity new
+订单信息： 订单金额 新建	Order information: order amount new
+订单信息： 订单金额(不含邮费) 新建	Order information: order amount (excluding postage) new
+订单信息：下单时间 请选择	Order information: order placement time please select
+订单信息：付款时间 请选择	Order information: payment time please select
+货品信息：包含指定数量单品sku 请选择	Goods information: contains a specified number of individual sku please select
+货品信息：排除指定单品sku 请选择	Goods information: exclude specified single sku please select
+货品信息：包含指定数量组合sku 请选择	Goods information: contains a specified number of combination skus please select
+货品信息：排除指定组合sku 请选择	Goods information: exclude specified combination sku please select
+货品信息：包含指定数量spu 请选择	Goods information: contains a specified number of spus please select
+货品信息：排除指定数量spu 请选择	Goods information: exclude specified number of spus please select
+货品信息： 包含指定数量平台商品 请输入	Goods information: contains the specified number of platform items please enter
+货品信息： 排除指定平台商品 请输入	Goods information: exclude specified platform items please enter
+货品信息： 包含指定货品范围数量 请输入	Goods information: contains the quantity of the specified range of goods please enter
+执行动作	Execution action
+赠送方式	Gifting method
+赠送全部已选赠品	Give all selected gifts
+已选赠品中随机赠送多份	Selected gifts in the randomly presented multiple copies
+随机赠送份数	Number of randomly given copies
+优先赠送不同的，库存最多的赠品	Give priority to different, Most-inventory giveaways
+赠品库存不足时，跳过该条赠品不赠送	When the stock of gifts is low, Skip the gift is not given
+添加赠品	Add giveaways
+图片	Images
+Sku编码	Sku code
+数量	Quantity
+操作	Operation
+删除	Delete
+店铺	Stores
+请选择	Please select
+保存	Save
+条件	Conditions
+请输入	Please input
+订单sku数量	Number of skus for orders
+保存	Save
+币种	Currency
+将订单金额换算为目标币种进行判断	Convert the order amount to the target currency for determination
+当订单金额币种与策略币种不同时，若勾选该配置，金额将换算为已选币种单位后进行金额数值的判断；若不勾选该配置，币种不同即不符合该条件	When the order amount currency is different from the policy currency, If the configuration is checked, The amount will be converted to the selected currency unit and then the amount value will be judged; if the configuration is not checked, The currency is different that does not meet the condition
+条件	Conditions
+请输入	Please input
+订单金额	Order amount
+保存	Save
+完全同【订单信息： 订单金额 新建】略	-
+时间类型	Time type
+北京时间	Beijing time
+平台时间	Platform time
+下单时间	Order placement time
+开始日期	Start date
+至	To
+结束日期	End date
+保存	Save
+付款时间	Payment time
+其余完全同【订单信息：下单时间 请选择】略	-
+包含指定数量单品sku	Contains a specified number of individual skus
+Sku编码	Sku code
+Sku名称	Sku name
+Spu编码	Spu code
+Spu名称	Spu name
+保存	Save
+搜索	Search
+重置	Reset
+货品列表	Goods list
+Sku编码	Sku code
+Sku名称	Sku name
+Spu编码	Spu code
+Spu名称	Spu name
+品牌	Brand
+分类	Category
+已选货品	Selected goods
+清空	Clear
+请选择	Please select
+订单包含其中任一sku即为满足条件	Orders containing any of these skus are considered to meet the conditions
+订单需包含所有sku视为满足条件	Orders must contain all skus to meet the conditions
+只有当选择等于时，出现数量倍增配置项	The quantity multiplication configuration item appears only when equal is selected
+等于	Equal to
+数量倍增	Multiplication of numbers
+数量上限	Quantity limit
+大于等于	More than or equal to
+小于等于	Less than or equal to
+不可为空	Cannot be empty
+请输入正整数！	Please enter a positive integer!
+排除指定单品sku	Exclude specified single product sku
+其余完全同【货品信息：包含指定数量单品sku 请选择】略	-
+包含指定数量组合sku	Contains a specified number of combination skus
+组合sku编码	Combined sku code
+组合sku名称	Combined sku name
+保存	Save
+搜索	Search
+重置	Reset
+货品列表	Goods list
+图片	Images
+组合sku编码	Combined sku code
+组合sku名称	Combined sku name
+Sku种类数	Number of sku categories
+Sku数量	Number of skus
+已选货品	Selected goods
+清空	Clear
+请选择	Please select
+订单包含其中任一组合sku即为满足条件	Orders containing any combination of these skus are considered to meet the conditions
+订单需包含所有组合sku视为满足条件	Orders must contain all combination skus to meet the conditions
+只有当选择等于时，出现数量倍增配置项	The quantity multiplication configuration item appears only when equal is selected
+等于	Equal to
+数量倍增	Multiplication of numbers
+数量上限	Quantity limit
+大于等于	More than or equal to
+小于等于	Less than or equal to
+不可为空	Cannot be empty
+请输入正整数！	Please enter a positive integer!
+排除指定组合sku	Exclude specified combination skus
+其余完全同【货品信息：包含指定数量组合sku 请选择】略	-
+包含指定数量spu	Contains a specified number of spus
+Spu编码	Spu code
+Spu名称	Spu name
+保存	Save
+搜索	Search
+重置	Reset
+货品列表	Goods list
+Spu编码	Spu code
+Spu名称	Spu name
+品牌	Brand
+分类	Category
+Sku种类数	Number of sku categories
+已选货品	Selected goods
+清空	Clear
+请选择	Please select
+订单包含其中任一spu即为满足条件	Orders containing any of these spus are considered to meet the conditions
+订单需包含所有spu视为满足条件	Orders must contain all spus to meet the conditions
+只有当选择等于时，出现数量倍增配置项	The quantity multiplication configuration item appears only when equal is selected
+等于	Equal to
+数量倍增	Multiplication of numbers
+数量上限	Quantity limit
+大于等于	More than or equal to
+小于等于	Less than or equal to
+不可为空	Cannot be empty
+请输入正整数！	Please enter a positive integer!
+排除指定数量spu	Exclude a specified number of spus
+其余完全同【货品信息：包含指定数量spu 请选择】略	-
+包含指定数量平台商品	Includes a specified number of platform items
+保存	Save
+请选择	Please select
+订单包含其中任一平台商品即为满足条件	Orders containing any of these platform items are considered to meet the conditions
+订单需包含所有平台商品视为满足条件	Orders must include all platform items to meet the conditions
+批量输入平台商品id识别：	Batch input platform item id identification
+用“回车”或“：”分隔，最多输入100条记录（可直接将excel文件一列粘贴到框内）	Separated by "enter" or ":", Enter up to 100 records (can be directly pasted into the box in one column of the excel file)
+清空	Clear
+识别	Identify
+平台商品id	Platform item id
+平台商品id不能为空	Platform item id cannot be empty
+请输入	Please input
+等于	Equal to
+数量倍增	Multiplication of numbers
+数量上限	Quantity limit
+大于等于	More than or equal to
+小于等于	Less than or equal to
+数量	Quantity
+不可为空	Cannot be empty
+请输入正整数！	Please enter a positive integer!
+排除指定平台商品	Exclusion of designated platform items
+用'回车'分隔，最多输入2000条记录（可直接将excel文件一列粘贴到框内）	Separated by "enter" or ":", Enter up to 2000 records (can be directly pasted into the box in one column of the excel file)
+保存	Save
+包含指定货品范围数量	Include the quantity of the specified range of goods
+保存	Save
+货品范围内sku数量加和：	Number of skus in the range of goods summed
+请输入	Please input
+请选择	Please select
+等于	Equal to
+数量倍增	Multiplication of numbers
+数量上限	Quantity limit
+大于等于	More than or equal to
+小于等于	Less than or equal to
+不可为空	Cannot be empty
+请输入正整数！	Please enter a positive integer!
+货品范围指定	Goods range designation
+添加货品	Add goods
+添加单品	Add goods
+添加组合装	Add combination goods
+删除	Delete
+图片	Images
+Sku编码	Sku code
+Sku名称	Sku name
+Spu编码	Spu code
+Spu名称	Spu name
+是否是组合装	Is the combination of goods
+	
+自动处理策略	Automatic processing strategy
+精确	Precise
+模糊	Blurred
+策略名称	Strategy name
+状态	Status
+启用	Enable
+停用	Disable
+搜索	Search
+订单处理	Order processing
+新建策略	Create strategy
+策略名称	Strategy name
+策略明细	Strategy details
+自动处理时间	Automatic processing time
+状态	Status
+操作	Operation
+编辑	Edit
+停用	Disable
+启用	Enable
+日志	Logs
+操作人	Operator
+操作内容	Operation content
+操作时间	Operation time
+新建订单自动处理策略	Create an automatic order processing strategy
+编辑订单自动处理策略	Edit an automatic order processing strategy
+保存	Save
+策略名称	Strategy name
+请输入策略名称	Please input strategy name
+选择条件	Selecting conditions
+自动处理满足选中的条件且非缺货、非驳回、非商品全部退款、非商品部分退款、非可合并的订单	Automatically process orders that meet the selected criteria and are not out of stock, Not rejected, Not a full refund of the item, Not a partial refund of the item, Or not combinable
+按订单信息指定	Specified by order information
+店铺	Stores
+无买家备注订单	No buyer notes order
+无客服备注订单	No customer service notes order
+物流同步状态	Logistics synchronization status
+是否合单满升级订单	Whether the combined single full upgrade order
+订单已税状态	Order taxed status
+订单买家实付金额	Order buyer paid amount
+按货品信息指定	Specify by goods information
+排除指定单品sku	Exclude specified single product sku
+排除指定组合sku	Exclude specified combination skus
+已选条件	Selected conditions
+订单信息： 店铺 请选择	Order information: shops please select
+订单信息： 无买家备注订单	Order information: no buyer notes order
+订单信息： 无客服备注订单	Order information: no customer service notes order
+订单信息： 物流同步状态 请选择	Order information: logistics synchronization status please select
+订单信息： 是否合单满升级订单 请选择	Order information: whether the combined single full upgrade order please select
+订单信息： 订单已税状态 请选择	Order information: order taxed status please select
+订单信息： 订单买家实付金额 请选择	Order information: order buyer paid amount please select
+货品信息： 排除指定单品sku 请选择	Order information: exclude specified single product sku please select
+货品信息： 排除指定组合sku 请选择	Order information: exclude specified combination skus please select
+订单自动处理时间	Automatic order processing time
+每天固定时间自动处理	Automatic processing at a fixed time each day
+北京时间，每天在设置的北京时间范围内进行自动处理，到达设置的时间立即开始自动处理	Beijing time, Automatic processing within the set beijing time range every day, Automatic processing starts immediately when the set time is reached
+开始时间	Start time
+至	To
+结束时间	End time
+按时间段自动处理	Automatic processing by time period
+北京时间，在设置的日期及北京时间范围内进行自动处理，到达设置的时间立即开始自动处理	Beijing time, Automatic processing within the set beijing time range every day, Automatic processing starts immediately when the set time is reached
+开始日期	Start time
+至	To
+结束日期	End time
+实时处理	Real-time processing
+仅支持输入非负整数；举例：若设置实时处理n小时前订单，则每个订单进入待处理n小时后才会自动移入配货中	Only support the input of non-negative integers; example: if you set up real-time processing n hours ago orders, Each order will be automatically moved into the allocation only after n hours into the pending processing
+请输入	Please input
+请填写时间	Please fill in the time
+小时前订单	Hours ago order
+店铺	Stores
+请选择	Please select
+物流同步状态	Logistics synchronization status
+未同步	Unsynchronized
+同步成功	Synchronization success
+是否合单满升级订单	Whether the combined single full upgrade order
+是	TRUE
+否	FALSE
+订单已税状态	Order taxed status
+已税	Taxed
+未税	Untaxed
+无	None
+订单买家实付金额	Order buyer paid amount
+币种	Currency
+请选择	Please select
+条件	Conditions
+最小值	Minimum value
+订单金额	Order amount
+最大值	Maximum value
+排除指定单品sku	Exclude specified single product sku
+Sku编码	Sku code
+Sku名称	Sku name
+Spu编码	Spu code
+Spu名称	Spu name
+请输入内容	Please enter the content
+保存	Save
+搜索	Search
+重置	Reset
+货品列表	Goods list
+品牌	Brand
+分类	Category
+已选货品	Selected goods
+清空	Clear
+排除指定组合sku	Exclude specified combination skus
+组合sku编码	Combined sku code
+组合sku名称	Combined sku name
+请输入内容	Please enter the content
+保存	Save
+搜索	Search
+重置	Reset
+货品列表	Goods list
+图片	Image
+Sku种类数	Number of sku categories
+Sku数量	Number of skus
+已选货品	Selected goods
+清空	Clear
+	
+选仓策略	Select warehouse strategy
+编辑	Edit
+校验库存	Calibrate inventory
+不校验库存	No calibrate inventory
+校验物流	Calibrate logistics
+不校验物流	No calibrate logistics
+覆盖国家	Countries covered
+上一步	Previous step
+下一步	Next step
+保存	Save
+选择仓库	Select warehouse
+选择覆盖国家	Select country of coverage
+选择物流	Select logistics
+仓库列表	Warehouse list
+已选仓库	Selected warehouse
+拖动卡片调整仓库优先级	Drag the card to adjust the warehouse priority
+仓库名称	Warehouse name
+所在国家	Country of residence
+仓库子类型	Warehouse subtype
+启用状态	Enable status
+仓库类型	Warehouse type
+配送区域	Delivery area
+已选国家	Selected countries
+清空	Clear
+全部	All
+亚洲	Asia
+欧洲	Europe
+北美洲	North america
+南美洲	South america
+非洲	Africa
+大洋洲	Oceania
+其他	Others
+搜索	Search
+选择仓库可发物流	Select warehouse can send logistics
+仓库库存校验	Warehouse inventory verification
+仓库物流校验	Warehouse logistics calibration
+选择资费最低的物流	Choose the logistics with the lowest rates
+物流使用优先级	Logistics use priority
+物流列表	Logistics list
+已选物流	Selected logistics
+清空	Clear
+拖动卡片调整物流优先级	Drag the card to adjust the logistics priority
+物流名称	Logistics name
+物流商	Logistician
+物流渠道	Logistics channels
+配送范围	Delivery range
+支持特殊货品	Support special goods
+	
+选物流策略	Logistics selection strategy
+编辑	Edit
+启用	Enable
+停用	Disable
+规则名称	Rule name
+精确	Precise
+模糊	Blurred
+请输入规则名称	Please enter the name of the rule
+状态	Status
+请选择	Please select
+启用	Enable
+停用	Disable
+保存	Save
+搜索	Search
+重置	Reset
+新建规则	Create rule
+优先级排序	Priority ranking
+规则名称	Rule name
+策略明细	Strategy details
+指定物流	Designated logistics
+操作	Operation
+您确定要删除吗？	Are you sure you want to delete it?
+取消	Cancel
+确定	Confirm
+选择物流条件	Select logistics conditions
+规则名称：	Rule name
+请输入规则名称	Please enter the name of the rule
+选择条件	Selecting conditions
+按货品指定	Specify by goods
+货品sku	Goods sku
+按订单地址指定	Specify by order address
+收件国家	Receiving country
+收件省/洲	Receiving province/continent
+收件地址指定字符	Receiving address specified characters
+收件邮编	Receiving zip code
+按买家信息指定	Specify by buyer information
+买家指定物流	Buyer specified logistics
+买家支付运费	Buyer pays shipping costs
+按订单信息指定	Specify by order information
+订单金额	Order amount
+订单预估重量	Order estimated weight
+Wish a+ 订单	Wish a+ orders
+速卖通合单满升级订单	Ae combined single full upgrade order
+速卖通x日达订单	Ae's x-day delivery order
+已选条件	Selected conditions
+订单产品：系统sku 新建	Order products: goods sku new
+订单地址：收件国家 请选择	Order address: receiving country please select
+订单地址：收件省/州 请选择	Order address: receiving province/continent please select
+订单地址：收件地址指定字符 请选择	Order address: receiving address specified characters please select
+订单地址：收件邮编 请选择	Order address: receiving zip code please select
+订单买家信息：买家指定物流为(所有买家指定物流)	Order buyer information: buyer specified logistics for (all buyers specify logistics)
+订单买家信息：买家支付运费 请选择	Order buyer information: buyer please select
+订单信息：订单金额 请选择	Order information: order amount please select
+订单信息：订单预估重量 请选择	Order information: order estimated weight please select
+订单信息：为wisha+订单	Order information: wish a+ orders please select
+订单信息：为速卖通合单满升级订单	Order information: ae combined single full upgrade order please select
+订单信息：为速卖通x日达订单	Order information: ae's x-day delivery order please select
+执行动作	Execute action
+资费相同则随机选择物流，如果上述条件选择了买家指定物流，则默认从买家指定物流对应的系统物流按照资费最低选择	The same cost is randomly selected logistics, If the above conditions selected the buyer specified logistics, The default from the buyer specified logistics corresponding system logistics in accordance with the lowest cost selection
+按照资费最低选择物流	Select logistics according to the lowest cost
+指定一个物流	Specify a logistics
+请选择	Please select
+货品sku	Goods sku
+Sku编码	Sku code
+Sku名称	Sku name
+Spu编码	Spu code
+Spu名称	Spu name
+请输入内容	Please enter the content
+保存	Save
+重置	Reset
+搜索	Search
+货品列表	Goods list
+品牌	Brand
+分类	Category
+已选货品	Selected goods
+清空	Clear
+选择国家	Select country
+包含	Include
+排除	Exclude
+保存	Save
+搜索	Search
+国家列表	Country list
+全部	All
+亚洲	Asia
+欧洲	Europe
+北美洲	North america
+南美洲	South america
+非洲	Africa
+大洋洲	Oceania
+其他	Others
+已选国家	Selected countries
+清空	Clear
+收件省/州	Receiving province/state
+包含	Include
+排除	Exclude
+保存	Save
+多个地区/地址换行分隔	Multiple regions/addresses separated by line breaks
+收件地址指定字符	Receiving address specified characters
+包含	Include
+排除	Exclude
+保存	Save
+多个地区/地址换行分隔	Multiple regions/addresses separated by line breaks
+收件邮编	Receiving zip code
+包含	Include
+排除	Exclude
+保存	Save
+多个邮编换行分隔	Multiple zip codes separated by line breaks
+完全匹配	Exact match
+前缀匹配	Prefix match
+买家指定物流	Buyer specified logistics
+所有买家指定物流	All buyer specified logistics
+平台物流名称	Platform logistics name
+系统物流	System logistics
+暂无数据	No data
+已选物流	Selected logistics
+买家支付运费	Buyer pays shipping costs
+保存	Save
+币种	Currency
+请选择	Please select
+条件	Conditions
+买家运费	Buyer shipping cost
+请输入最小值	Please enter the minimum value
+请输入最大值	Please enter the maximum value
+订单金额	Order amount
+保存	Save
+币种	Currency
+请选择	Please select
+条件	Conditions
+请输入最小值	Please enter the minimum value
+请输入最大值	Please enter the maximum value
+订单预估重量	Order estimated weight
+保存	Save
+条件	Conditions
+请输入最小值	Please enter the minimum value
+请输入最大值	Please enter the maximum value
