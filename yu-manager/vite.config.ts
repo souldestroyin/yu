@@ -21,7 +21,18 @@ export default ({ mode }) => {
     },
     define: {
       'process.env': envConfig
+    },
+
+    server: {
+      proxy: {
+        '/api': {
+          target: 'https://kjjavadev.wdterp.com',
+          changeOrigin: true
+        }
+      }
     }
+
+
   }
 
   return defineConfig(config)
