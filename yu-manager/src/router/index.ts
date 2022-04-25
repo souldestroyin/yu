@@ -2,10 +2,12 @@ import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 import Home from "../views/Home.vue";
 
 import LoginRoutes from '@/modules/login/router'
+import ReleaseRoutes from '@/modules/release/router'
 
 
 const routes: Array<RouteRecordRaw> = [
   ...LoginRoutes,
+  ...ReleaseRoutes,
 
   {
     path: "/",
