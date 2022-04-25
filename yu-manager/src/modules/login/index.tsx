@@ -6,122 +6,116 @@ import {
   ElInput,
   type FormInstance,
 } from "element-plus";
-import { reactive, ref } from "vue";
+import { reactive, ref, defineComponent } from "vue";
 import Login from "./objects/login";
 
-type FormRule = (rule: any, value: string, callback: Function) => void;
+export default defineComponent({
+  name: "LoginPage",
+  setup() {
+    const loginData = new Login();
 
-const validateSid: FormRule = (rule, value, callback) => {
-  if (value === "") {
-    callback(new Error("请输入卖家账号"));
-  } else {
-    callback();
-  }
-  //   validUsername(rule, value, callback);
-};
-const validateAccount: FormRule = (rule, value, callback) => {
-  if (value === "") {
-    callback(new Error("请输入用户名"));
-  } else {
-    callback();
-  }
-  //   validUsername(rule, value, callback);
-};
-const validatePassword: FormRule = (rule, value, callback) => {
-  if (value.length < 6) {
-    callback(new Error("密码不能短于6字符"));
-  } else {
-    callback();
-  }
-};
+    const ver = ref(0);
 
-export default () => {
-  const loginData = reactive(new Login());
+    const loading = ref(false);
 
-  const loginRule = {
-    sid: [{ required: true, trigger: "blur", validator: validateSid }],
-    account: [{ required: true, trigger: "blur", validator: validateAccount }],
-    password: [
-      { required: true, trigger: "blur", validator: validatePassword },
-    ],
-  };
+    const loginFormRef = ref<FormInstance>();
 
-  const loading = ref(false);
+    const handleClickLoginBtn = async () => {
+      ver.value++;
+      console.log("loginFormRef.value", loginFormRef);
 
-  const loginFormRef = ref<FormInstance>();
+      // if (!loginFormRef.value) {
+      //   return;
+      // }
 
-  const handleClickLoginBtn = async () => {
-    console.log(54907357982357492370, loginFormRef.value);
+      // const valid = await loginFormRef.value.validate();
 
-    if (!loginFormRef.value) {
-      return;
-    }
+      // if (!valid) {
+      //   return;
+      // }
 
-    const valid = await loginFormRef.value.validate();
+      loading.value = true;
+      console.log(ver, loading);
 
-    if (!valid) {
-      return;
-    }
+      // await loginData.login();
+      // loading.value = false;
+    };
 
-    loading.value = true;
-    await loginData.login();
-    loading.value = false;
-  };
-
-  return () => (
-    <div>
-      <ElForm ref={loginFormRef} model={loginData} rules={loginRule}>
-        <ElFormItem
-          prop="sid"
-          error={loginData.errKey === "sid" ? loginData.errMsg : undefined}
+    return () => (
+      <div>
+        {ver.value}
+        {loginData + ""}
+        <ElForm
+          ref={loginFormRef}
+          model={loginData}
+          rules={loginData.loginRule}
         >
-          <ElInput
-            modelValue={loginData.sid}
-            onInput={(val) => (loginData.sid = val)}
-            placeholder="请输入卖家账号"
-            type="text"
-            tabindex="1"
-            autocomplete="on"
-          ></ElInput>
-        </ElFormItem>
+          <ElFormItem
+            prop="sid"
+            error={loginData.errKey === "sid" ? loginData.errMsg : undefined}
+          >
+            {loginData.sid}
+            <ElInput
+              modelValue={loginData.sid}
+              onInput={(val) => {
+                loginData.update("sid", val);
+                ver.value++;
+              }}
+              placeholder="请输入卖家账号"
+              type="text"
+              tabindex="1"
+              autocomplete="on"
+            ></ElInput>
+          </ElFormItem>
 
-        <ElFormItem
-          prop="account"
-          error={loginData.errKey === "account" ? loginData.errMsg : undefined}
-        >
-          <ElInput
-            modelValue={loginData.account}
-            onInput={(val) => (loginData.account = val)}
-            placeholder="请输入用户名"
-            type="text"
-            tabindex="1"
-            autocomplete="on"
-          ></ElInput>
-        </ElFormItem>
+          <ElFormItem
+            prop="account"
+            error={
+              loginData.errKey === "account" ? loginData.errMsg : undefined
+            }
+          >
+            {loginData.account}
+            <ElInput
+              modelValue={loginData.account}
+              onInput={(val) => {
+                loginData.update("account", val);
+                ver.value++;
+              }}
+              placeholder="请输入用户名"
+              type="text"
+              tabindex="1"
+              autocomplete="on"
+            ></ElInput>
+          </ElFormItem>
 
-        <ElFormItem
-          prop="password"
-          error={loginData.errKey === "password" ? loginData.errMsg : undefined}
-        >
-          <ElInput
-            modelValue={loginData.password}
-            onInput={(val) => (loginData.password = val)}
-            placeholder="请输入密码"
-            type="password"
-            tabindex="2"
-            autocomplete="on"
-          ></ElInput>
-        </ElFormItem>
+          <ElFormItem
+            prop="password"
+            error={
+              loginData.errKey === "password" ? loginData.errMsg : undefined
+            }
+          >
+            <ElInput
+              modelValue={loginData.password}
+              onInput={(val) => {
+                loginData.update("password", val);
+                ver.value++;
+              }}
+              placeholder="请输入密码"
+              type="password"
+              tabindex="2"
+              autocomplete="on"
+            ></ElInput>
+          </ElFormItem>
 
-        <ElButton
-          loading={loading.value}
-          disabled={!loginData.canLogin()}
-          onClick={handleClickLoginBtn}
-          type="primary"
-        >
-          登录
-        </ElButton>
-      </ElForm>
-    </div>
-  );
-};
+          <ElButton
+            loading={loading.value}
+            onClick={handleClickLoginBtn}
+            type="primary"
+          >
+            登录
+          </ElButton>
+        </ElForm>
+      </div>
+    );
+  },
+});
