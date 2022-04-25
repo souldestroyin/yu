@@ -6,23 +6,21 @@ import { setSid } from '../../../tools/auth';
 type FormRule = (rule: any, value: string, callback: Function) => void;
 
 const validateSid: FormRule = (rule, value, callback) => {
-
-
   if (value === "") {
     callback(new Error("请输入卖家账号"));
   } else {
     callback();
   }
-
 };
-const validateAccount: FormRule = (rule, value, callback) => {
 
+const validateAccount: FormRule = (rule, value, callback) => {
   if (value === "") {
     callback(new Error("请输入用户名"));
   } else {
     callback();
   }
 };
+
 const validatePassword: FormRule = (rule, value, callback) => {
   if (value.length < 6) {
     callback(new Error("密码不能短于6字符"));
@@ -57,20 +55,20 @@ export default class Login {
 
 
   async login() {
+    // 先清除异常
     this.errKey = ''
     this.errMsg = ''
 
-    const sid = filterXSS(this.sid.trim())
-    const account = this.account.trim()
-
-    const password = md5(this.password)
-
     try {
+      const sid = filterXSS(this.sid.trim())
+      const account = this.account.trim()
+      const password = md5(this.password)
+
       const { data } = await apiLogin(sid, account, password)
 
       if (data) {
         setToken(data.token)
-        setSid(data.sid)
+        // setSid(data.sid) 这个好像没有用
       }
 
       return Promise.resolve()
