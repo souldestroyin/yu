@@ -11,7 +11,7 @@ import { useRouter } from "vue-router";
 import Login from "./objects/login";
 
 export default defineComponent({
-  name: "LoginPage",
+  name: "Login",
   setup() {
     const loginData = new Login();
 
@@ -22,6 +22,8 @@ export default defineComponent({
 
     // 表单组件引用
     const loginFormRef = ref<FormInstance>();
+
+    const router = useRouter();
 
     // 登录操作
     const handleClickLoginBtn = async () => {
@@ -41,8 +43,6 @@ export default defineComponent({
 
       try {
         await loginData.login();
-
-        const router = useRouter();
 
         router.push({
           name: "Release",

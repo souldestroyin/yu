@@ -31,9 +31,9 @@ const validatePassword: FormRule = (rule, value, callback) => {
   }
 };
 export default class Login {
-  sid = ''
-  account = ''
-  password = ''
+  sid = 'java_dev'
+  account = 'zhengkaixuan'
+  password = 'Woaihuice1992'
 
   errKey = ''
   errMsg = ''
@@ -97,22 +97,11 @@ export default class Login {
       return Promise.reject()
 
     }
-
-
-
-
-
-
-    // await 
   }
-
 
   update(prop: 'sid' | 'account' | 'password', value: string) {
     this[prop] = value
   }
-
-
-
 
   canLogin() {
     return !!(this.sid && this.account && this.password)

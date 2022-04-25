@@ -6,7 +6,7 @@ import { ElMessage } from 'element-plus'
 
 // create an axios instance
 const service = axios.create({
-  baseURL: '/api',
+  baseURL: '',
   // 因文件导入数据处理阶段耗时较久，故增加超时时长
   timeout: 900000
 })

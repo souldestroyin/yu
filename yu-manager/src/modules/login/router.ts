@@ -1,9 +1,6 @@
 import { RouteRecordRaw } from "vue-router";
 import Login from './index'
 
-
-
-
 const routes: Array<RouteRecordRaw> = [
     {
         path: '/login',
