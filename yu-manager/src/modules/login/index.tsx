@@ -7,6 +7,7 @@ import {
   type FormInstance,
 } from "element-plus";
 import { reactive, ref, defineComponent } from "vue";
+import { useRouter } from "vue-router";
 import Login from "./objects/login";
 
 export default defineComponent({
@@ -14,47 +15,57 @@ export default defineComponent({
   setup() {
     const loginData = new Login();
 
+    // 更新页面用
     const ver = ref(0);
 
     const loading = ref(false);
 
+    // 表单组件引用
     const loginFormRef = ref<FormInstance>();
 
+    // 登录操作
     const handleClickLoginBtn = async () => {
       ver.value++;
-      console.log("loginFormRef.value", loginFormRef);
 
-      // if (!loginFormRef.value) {
-      //   return;
-      // }
+      if (!loginFormRef.value) {
+        return;
+      }
 
-      // const valid = await loginFormRef.value.validate();
+      const valid = await loginFormRef.value.validate();
 
-      // if (!valid) {
-      //   return;
-      // }
+      if (!valid) {
+        return;
+      }
 
       loading.value = true;
-      console.log(ver, loading);
 
-      // await loginData.login();
-      // loading.value = false;
+      try {
+        await loginData.login();
+
+        const router = useRouter();
+
+        router.push({
+          name: "Release",
+        });
+      } catch {
+        console.log("errrrrrrr");
+      }
+      loading.value = false;
     };
 
     return () => (
       <div>
-        {ver.value}
-        {loginData + ""}
+        <span style="display:none">{ver.value}</span>
+
         <ElForm
           ref={loginFormRef}
-          model={loginData}
+          model={loginData.getFormData()}
           rules={loginData.loginRule}
         >
           <ElFormItem
             prop="sid"
             error={loginData.errKey === "sid" ? loginData.errMsg : undefined}
           >
-            {loginData.sid}
             <ElInput
               modelValue={loginData.sid}
               onInput={(val) => {
@@ -74,7 +85,6 @@ export default defineComponent({
               loginData.errKey === "account" ? loginData.errMsg : undefined
             }
           >
-            {loginData.account}
             <ElInput
               modelValue={loginData.account}
               onInput={(val) => {
@@ -109,6 +119,7 @@ export default defineComponent({
 
           <ElButton
             loading={loading.value}
+            disabled={!loginData.canLogin()}
             onClick={handleClickLoginBtn}
             type="primary"
           >

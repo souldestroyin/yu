@@ -1,19 +1,21 @@
 import filterXSS from 'xss'
 import md5 from 'js-md5'
 import { apiLogin } from '../apis/login';
+import { setToken } from '@/tools/auth';
+import { setSid } from '../../../tools/auth';
 type FormRule = (rule: any, value: string, callback: Function) => void;
 
 const validateSid: FormRule = (rule, value, callback) => {
-  console.log('rule', rule);
+
 
   if (value === "") {
     callback(new Error("请输入卖家账号"));
   } else {
     callback();
   }
+
 };
 const validateAccount: FormRule = (rule, value, callback) => {
-  console.log(value, callback);
 
   if (value === "") {
     callback(new Error("请输入用户名"));
@@ -44,6 +46,15 @@ export default class Login {
     ],
   }
 
+  getFormData() {
+    const { sid, account, password } = this
+    return {
+      sid,
+      account,
+      password
+    }
+  }
+
 
   async login() {
     this.errKey = ''
@@ -56,11 +67,15 @@ export default class Login {
 
     try {
       const { data } = await apiLogin(sid, account, password)
-      console.log(data);
+
+      if (data) {
+        setToken(data.token)
+        setSid(data.sid)
+      }
+
+      return Promise.resolve()
 
     } catch ({ code, msg }) {
-
-
       switch (code) {
         case 40003: {
           this.errKey = 'account'
@@ -75,10 +90,11 @@ export default class Login {
         case 40002: {
           this.errKey = 'password'
           this.errMsg = msg as string
+          break
         }
       }
 
-
+      return Promise.reject()
 
     }
 
@@ -90,8 +106,8 @@ export default class Login {
     // await 
   }
 
-  update(prop: 'sid' | 'account' | 'password', value: string) {
 
+  update(prop: 'sid' | 'account' | 'password', value: string) {
     this[prop] = value
   }
 
