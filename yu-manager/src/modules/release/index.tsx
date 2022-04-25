@@ -1,6 +1,11 @@
 import { defineComponent, ref } from "vue";
 import Moduler from "./objects/moduler";
-import { ElIcon, ElTabs, ElTabPane, type TabsPaneContext } from "element-plus";
+import {
+  ElButton,
+  ElTabs,
+  ElTabPane,
+  type TabsPaneContext,
+} from "element-plus";
 import { Plus } from "@element-plus/icons-vue";
 
 export default defineComponent({
@@ -21,9 +26,7 @@ export default defineComponent({
 
     return () => (
       <div>
-        <ElIcon>
-          <Plus></Plus>
-        </ElIcon>
+        <ElButton icon={Plus} type="text"></ElButton>
         <ElTabs
           model-value={currentModuler.value}
           onTab-click={handleClickTab}
