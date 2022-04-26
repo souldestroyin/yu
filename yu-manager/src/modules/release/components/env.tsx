@@ -1,6 +1,7 @@
-import { defineComponent } from "vue";
-import { Env } from "../objects/env";
+// tools
+import { defineComponent, ref } from "vue";
 
+//components
 import {
   ElButton,
   ElTabs,
@@ -8,14 +9,15 @@ import {
   ElCard,
   ElTable,
   ElTableColumn,
-  type TabsPaneContext,
 } from "element-plus";
+
+// models
+import { Env } from "../objects/env";
 
 // styles
 import classes from "./env.module.scss";
 import { EditPen } from "@element-plus/icons-vue";
-
-console.log(classes);
+import { useDialog } from "@/hooks/useDialog";
 
 export default defineComponent({
   name: "EnvComp",
@@ -37,13 +39,40 @@ export default defineComponent({
       ),
     };
 
+    const res = ref();
+    const [open, close, loading] = useDialog({
+      title: "test",
+      body: () => (
+        <div>
+          test dialog
+          <ElButton
+            onClick={() => {
+              loading.value = !loading.value;
+            }}
+          >
+            load
+          </ElButton>
+          <ElButton onClick={close}>close</ElButton>
+        </div>
+      ),
+    });
+
+    const handleClickAddBtn = () => {
+      open();
+    };
+
     return () => (
-      <ElCard class={classes.container} v-slots={slots} shadow="never">
+      <ElCard
+        ref={res}
+        class={classes.container}
+        v-slots={slots}
+        shadow="never"
+      >
         <div class={classes.actionLine}>
           <ElButton type="primary" plain>
             迁移卖家至新环境
           </ElButton>
-          <ElButton>新增</ElButton>
+          <ElButton onClick={handleClickAddBtn}>新增</ElButton>
           <ElButton type="danger" plain>
             删除
           </ElButton>

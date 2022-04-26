@@ -14,8 +14,6 @@ import { EnvList } from "./objects/env";
 // styles
 import classes from "./style.module.scss";
 
-console.log(classes);
-
 export default defineComponent({
   name: "ReleasePage",
   setup() {
