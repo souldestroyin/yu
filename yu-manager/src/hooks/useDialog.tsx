@@ -15,10 +15,7 @@ export function useDialog(
   };
 
   const close = () => {
-    visible.value = false;
-    nextTick(() => {
-      instance.unmount();
-    });
+    instance.unmount();
   };
 
   return [open, close, loading];
