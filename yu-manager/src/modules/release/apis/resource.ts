@@ -1,9 +1,9 @@
 import request from '@/tools/request'
+import { ResourceType } from '../objects/resource'
 
 const baseUrl = '/local/releasePage'
 
-/**1.页面 2.接口 3.定时任务  */
-type ResourceType = 1 | 2 | 3
+
 
 
 export function getResourceList(moduleId: number, resourceType: ResourceType) {

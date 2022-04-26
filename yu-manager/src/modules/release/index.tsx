@@ -1,5 +1,4 @@
-import { defineComponent, ref } from "vue";
-import Moduler from "./objects/moduler";
+import { defineComponent, ref, watch } from "vue";
 import {
   ElButton,
   ElTabs,
@@ -8,30 +7,36 @@ import {
 } from "element-plus";
 import { Plus } from "@element-plus/icons-vue";
 
+import ModulerList from "./objects/moduler";
+import ResourceList from "./objects/resource";
+
 export default defineComponent({
   name: "Release",
   setup() {
-    const modulerList = new Moduler();
+    const modulerList = new ModulerList();
 
-    modulerList.getList();
+    modulerList.fetchList();
 
     const ver = ref(0);
     const currentModuler = ref(modulerList.getDefaultModuleId());
 
-    const handleClickTab = (pane: TabsPaneContext) => {
-      const moduleId = pane.paneName;
+    watch(currentModuler, () => {}, {
+      immediate: true,
+    });
 
-      currentModuler;
+    const pageList = new ResourceList(currentModuler.value, 1);
+    const apiList = new ResourceList(currentModuler.value, 2);
+    const settimeList = new ResourceList(currentModuler.value, 3);
+
+    const handleClickTab = (pane: TabsPaneContext) => {
+      const moduleId = pane.paneName as number;
+      currentModuler.value = moduleId!;
     };
 
     return () => (
       <div>
         <ElButton icon={Plus} type="text"></ElButton>
-        <ElTabs
-          model-value={currentModuler.value}
-          onTab-click={handleClickTab}
-          tabPosition="left"
-        >
+        <ElTabs v-model={currentModuler.value} tabPosition="left">
           {ver.value}
           {currentModuler.value}
           {modulerList.list.map((moduler) => (

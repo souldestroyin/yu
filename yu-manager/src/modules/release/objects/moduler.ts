@@ -4,7 +4,7 @@ type ModulerType = {
     name: string
 }
 
-export default class Moduler {
+export default class ModulerList {
     list: Array<ModulerType> = []
 
 
@@ -15,12 +15,12 @@ export default class Moduler {
 
     getDefaultModuleId() {
         if (this.isEmpty()) {
-            return ''
+            return 0
         }
         return this.list[0].moduleId
     }
 
-    getList() {
+    fetchList() {
         this.list = [
             {
                 moduleId: 1,
