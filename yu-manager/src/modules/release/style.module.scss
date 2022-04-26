@@ -1,0 +1,21 @@
+.container {
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+
+
+    .left {
+        width: 80px;
+        flex: 0 0 auto;
+    }
+
+    .middle {
+        width: 350px;
+        flex: 0 0 auto;
+    }
+
+    .right {
+        flex: 1 0 auto;
+        overflow: hidden;
+    }
+}
