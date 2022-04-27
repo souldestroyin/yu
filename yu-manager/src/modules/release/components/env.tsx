@@ -1,15 +1,15 @@
 // tools
-import { defineComponent, ref } from "vue";
+import { defineComponent, ref, PropType } from "vue";
 
 //components
 import {
   ElButton,
-  ElTabs,
-  ElTabPane,
   ElCard,
   ElTable,
   ElTableColumn,
+  ElDropdown,
 } from "element-plus";
+import AddSeller from "./addSeller";
 
 // models
 import { Env } from "../objects/env";
@@ -18,13 +18,19 @@ import { Env } from "../objects/env";
 import classes from "./env.module.scss";
 import { EditPen } from "@element-plus/icons-vue";
 import { useDialog } from "@/hooks/useDialog";
-import AddSeller from "./addSeller";
+
+// types
+import { SellerType } from "../objects/seller";
 
 export default defineComponent({
   name: "EnvComp",
   props: {
     env: {
       type: Env,
+      required: true,
+    },
+    envList: {
+      type: Array as PropType<Array<Env>>,
       required: true,
     },
   },
@@ -48,6 +54,16 @@ export default defineComponent({
 
     const handleClickAddBtn = () => {
       open();
+      loading.value = true;
+    };
+
+    const selection = ref<Array<SellerType>>([]);
+    const handleSelectionChange = (val: Array<SellerType>) => {
+      selection.value = val;
+    };
+
+    const handleClickMoveBtn = (env: Env) => {
+      console.log(env);
     };
 
     return () => (
@@ -58,16 +74,37 @@ export default defineComponent({
         shadow="never"
       >
         <div class={classes.actionLine}>
-          <ElButton type="primary" plain>
-            迁移卖家至新环境
-          </ElButton>
+          <ElDropdown>
+            {{
+              default: () => (
+                <ElButton type="primary" plain>
+                  迁移卖家至新环境
+                </ElButton>
+              ),
+              dropdown: () => (
+                <el-dropdown-menu>
+                  {props.envList
+                    .filter((env) => env !== props.env)
+                    .map((env) => (
+                      <el-dropdown-item onClick={() => handleClickMoveBtn(env)}>
+                        {env.envName}
+                      </el-dropdown-item>
+                    ))}
+                </el-dropdown-menu>
+              ),
+            }}
+          </ElDropdown>
+
           <ElButton onClick={handleClickAddBtn}>新增</ElButton>
           <ElButton type="danger" plain>
             删除
           </ElButton>
         </div>
 
-        <ElTable data={props.env.sidList}>
+        <ElTable
+          data={props.env.sidList}
+          onSelection-change={handleSelectionChange}
+        >
           <ElTableColumn type="selection" width="40"></ElTableColumn>
           <ElTableColumn label="卖家名称" prop="sid" sortable></ElTableColumn>
           <ElTableColumn

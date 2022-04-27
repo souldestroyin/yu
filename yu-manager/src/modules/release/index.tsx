@@ -56,7 +56,7 @@ export default defineComponent({
 
         <div class={classes.right}>
           {envList.list.map((env) => (
-            <EnvComp env={env} />
+            <EnvComp env={env} envList={envList.list} />
           ))}
         </div>
       </div>
