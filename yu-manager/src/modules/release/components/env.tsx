@@ -18,6 +18,7 @@ import { Env } from "../objects/env";
 import classes from "./env.module.scss";
 import { EditPen } from "@element-plus/icons-vue";
 import { useDialog } from "@/hooks/useDialog";
+import AddSeller from "./addSeller";
 
 export default defineComponent({
   name: "EnvComp",
@@ -42,19 +43,7 @@ export default defineComponent({
     const res = ref();
     const [open, close, loading] = useDialog({
       title: "test",
-      body: () => (
-        <div>
-          test dialog
-          <ElButton
-            onClick={() => {
-              loading.value = !loading.value;
-            }}
-          >
-            load
-          </ElButton>
-          <ElButton onClick={close}>close</ElButton>
-        </div>
-      ),
+      body: () => <AddSeller handleClickSubmitBtn={close}></AddSeller>,
     });
 
     const handleClickAddBtn = () => {
