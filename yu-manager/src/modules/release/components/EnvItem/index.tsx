@@ -1,5 +1,5 @@
 // tools
-import { defineComponent, ref, PropType, watch, toRef } from "vue";
+import { defineComponent, ref, PropType, watch, toRef, computed } from "vue";
 
 //components
 import {
@@ -12,7 +12,7 @@ import {
 import AddEnv from "../AddEnv";
 
 // models
-import { Env, EnvBaseType, EnvList } from "@/objects/env";
+import { EnvType, EnvBaseType, EnvList } from "@/objects/env";
 import { SellerType } from "@/objects/seller";
 
 // styles
@@ -24,26 +24,15 @@ export default defineComponent({
   name: "EnvItem",
   props: {
     env: {
-      type: Object as PropType<Env>,
+      type: Object as PropType<EnvType>,
       required: true,
     },
     envList: {
-      type: Array as PropType<Env[]>,
+      type: Object as PropType<EnvList>,
       required: true,
     },
   },
   setup(props) {
-    const slots = {
-      header: () => (
-        <div>
-          {props.env.envName}
-          --版本号
-          {props.env.version}
-          <ElButton type="text" icon={EditPen}></ElButton>
-        </div>
-      ),
-    };
-
     const [open, close, loading] = useDialog();
 
     const selection = ref<Array<SellerType>>([]);
@@ -51,65 +40,102 @@ export default defineComponent({
       selection.value = val;
     };
 
-    const handleClickAddBtn = () => {
-      console.log(999);
-    };
+    const handleClickAddBtn = () => {};
 
-    const handleClickMoveBtn = (env: Env) => {
+    const handleClickMoveBtn = (env: EnvType) => {};
+
+    const restEnvList = computed(() =>
+      props.envList.list.filter((env) => env !== props.env)
+    );
+
+    const handleClickEditBtn = () => {
       open({
         title: "修改环境",
-        component: () => <AddEnv handleDone={handleEditEnv} env={env}></AddEnv>,
+        component: () => (
+          <AddEnv handleDone={handleEditEnv} env={props.env}></AddEnv>
+        ),
       });
     };
-    const handleEditEnv = (formData: EnvBaseType) => {};
+    const handleEditEnv = (envId: number, formData: EnvBaseType) => {
+      props.envList.update(envId, formData);
+
+      close();
+    };
 
     return () => {
-      const restEnvList = props.envList.filter((env) => env !== props.env);
       return (
-        <ElCard class={classes.container} v-slots={slots} shadow="never">
-          <div class={classes.actionLine}>
-            <ElDropdown v-show={restEnvList.length}>
-              {{
-                default: () => (
-                  <ElButton type="primary" plain style="margin-right: 12px">
-                    迁移卖家至新环境
+        <ElCard class={classes.container} shadow="never">
+          {{
+            header: () => (
+              <div>
+                {props.env.envName}
+                --版本号
+                {props.env.version}
+                <ElButton
+                  type="text"
+                  icon={EditPen}
+                  onClick={handleClickEditBtn}
+                ></ElButton>
+              </div>
+            ),
+            default: () => (
+              <>
+                <div class={classes.actionLine}>
+                  <ElDropdown v-show={restEnvList.value.length}>
+                    {{
+                      default: () => (
+                        <ElButton
+                          type="primary"
+                          plain
+                          style="margin-right: 12px"
+                        >
+                          迁移卖家至新环境
+                        </ElButton>
+                      ),
+                      dropdown: () => (
+                        <el-dropdown-menu>
+                          {restEnvList.value.map((env) => (
+                            <el-dropdown-item
+                              onClick={() => handleClickMoveBtn(env)}
+                            >
+                              {env.envName}
+                            </el-dropdown-item>
+                          ))}
+                        </el-dropdown-menu>
+                      ),
+                    }}
+                  </ElDropdown>
+
+                  <ElButton onClick={handleClickAddBtn}>新增</ElButton>
+                  <ElButton type="danger" plain>
+                    删除
                   </ElButton>
-                ),
-                dropdown: () => (
-                  <el-dropdown-menu>
-                    {restEnvList.map((env) => (
-                      <el-dropdown-item onClick={() => handleClickMoveBtn(env)}>
-                        {env.envName}
-                      </el-dropdown-item>
-                    ))}
-                  </el-dropdown-menu>
-                ),
-              }}
-            </ElDropdown>
+                </div>
 
-            <ElButton onClick={handleClickAddBtn}>新增</ElButton>
-            <ElButton type="danger" plain>
-              删除
-            </ElButton>
-          </div>
-
-          <ElTable
-            data={props.env.sidList}
-            onSelection-change={handleSelectionChange}
-          >
-            <ElTableColumn type="selection" width="40"></ElTableColumn>
-            <ElTableColumn label="卖家名称" prop="sid" sortable></ElTableColumn>
-            <ElTableColumn
-              label="迁移时间"
-              prop="operateTime"
-              sortable
-            ></ElTableColumn>
-            <ElTableColumn
-              label="迁移人"
-              prop="operator"
-              sortable
-            ></ElTableColumn>
-          </ElTable>
+                <ElTable
+                  data={props.env.sidList}
+                  onSelection-change={handleSelectionChange}
+                >
+                  <ElTableColumn type="selection" width="40"></ElTableColumn>
+                  <ElTableColumn
+                    label="卖家名称"
+                    prop="sid"
+                    sortable
+                  ></ElTableColumn>
+                  <ElTableColumn
+                    label="迁移时间"
+                    prop="operateTime"
+                    sortable
+                  ></ElTableColumn>
+                  <ElTableColumn
+                    label="迁移人"
+                    prop="operator"
+                    sortable
+                  ></ElTableColumn>
+                </ElTable>
+              </>
+            ),
+          }}
         </ElCard>
       );
     };

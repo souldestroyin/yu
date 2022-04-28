@@ -1,7 +1,7 @@
 import { defineComponent, PropType, reactive, ref } from "vue";
 import type { FormInstance, FormRules } from "element-plus";
 import { ElAlert, ElFormItem, ElForm, ElInput, ElButton } from "element-plus";
-import { Env, EnvBaseType } from "@/objects/env";
+import { EnvBaseType } from "@/objects/env";
 
 export default defineComponent({
   name: "AddEnv",
@@ -36,9 +36,12 @@ export default defineComponent({
       if (!isValid) {
         return;
       }
-      props.handleDone(
-        env && env.envId ? { ...formData, envId: env.envId } : formData
-      );
+
+      if (env) {
+        props.handleDone(env.envId, formData);
+      } else {
+        props.handleDone(formData);
+      }
     };
     return () => (
       <div>

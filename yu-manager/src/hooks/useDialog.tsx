@@ -24,8 +24,6 @@ export function useDialog(): [
   };
 
   const close = () => {
-    console.log(instance);
-
     instance.unmount();
   };
 

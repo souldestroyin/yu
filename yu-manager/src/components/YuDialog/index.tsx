@@ -3,8 +3,6 @@ import { ElDialog, ElLoading } from "element-plus";
 
 import classes from "./style.module.scss";
 
-console.log(classes);
-
 export default defineComponent({
   name: "YuDialog",
   props: {

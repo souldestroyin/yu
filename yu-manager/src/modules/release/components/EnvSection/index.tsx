@@ -36,8 +36,6 @@ export default defineComponent({
     const [open, close, loading] = useDialog();
     const handleDone = (formData: EnvBaseType) => {
       envList.create(formData);
-      console.log("envList", envList);
-
       close();
     };
 
@@ -57,7 +55,7 @@ export default defineComponent({
         </div>
         <div class={classes.envContainer}>
           {envList.list.map((env) => (
-            <EnvItem env={env} envList={envList.list} />
+            <EnvItem env={env} envList={envList} />
           ))}
         </div>
       </div>

@@ -18,7 +18,6 @@ export function removeToken() {
   return Cookies.remove(TokenKey)
 }
 export function setPublicToken(token: string, params: CookieAttributes) {
-  console.log(token, params)
   return Cookies.set(publicToken, token, params)
 }
 export function removePublicToken(params: CookieAttributes) {

@@ -80,39 +80,11 @@ export type EnvBaseType = {
 
 // export type EnvEditType = EnvAddType & { envId: number };
 
-export type EnvType = EnvBaseType & { sidList: SellerType[] };
-
-export class Env {
-  envId: number;
-  envName: string; //环境名称
-  env: string; //环境标识
-  fallbackMsg: string; // 回退所需信息
-  updateMsg: string; // 升级所需信息
-  version: string;
-  sidList: SellerType[]; //卖家列表
-
-  constructor(
-    envId: number,
-    envName: string,
-    env: string,
-    fallbackMsg: string,
-    updateMsg: string,
-    version: string,
-    sidList: SellerType[]
-  ) {
-    this.envId = envId;
-    this.envName = envName;
-    this.env = env;
-    this.fallbackMsg = fallbackMsg;
-    this.updateMsg = updateMsg;
-    this.version = version;
-    this.sidList = sidList;
-  }
-}
+export type EnvType = EnvBaseType & { envId: number; sidList: SellerType[] };
 
 export class EnvList {
   moduleId: number;
-  list: Array<Env> = [];
+  list: Array<EnvType> = [];
 
   constructor(moduleId: number) {
     this.moduleId = moduleId;
@@ -122,20 +94,8 @@ export class EnvList {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         const FAKE_DATA = this.moduleId === 1 ? FAKE_DATA1 : FAKE_DATA2;
-        this.list = FAKE_DATA.map(
-          ({ envId, envName, env, fallbackMsg, updateMsg, version, sidList }) =>
-            new Env(
-              envId,
-              envName,
-              env,
-              fallbackMsg,
-              updateMsg,
-              version,
-              sidList
-            )
-        );
-        console.log(this.list);
-        resolve(9);
+        this.list = [...FAKE_DATA];
+        resolve("");
       }, 1000);
     });
   }
@@ -152,5 +112,25 @@ export class EnvList {
     };
 
     this.list.push(item);
+  }
+
+  update(
+    envId: number,
+    { envName, env, fallbackMsg, updateMsg, version }: EnvBaseType
+  ) {
+    const index = this.list.findIndex((o) => o.envId === envId);
+
+    if (index > -1) {
+      const item = this.list[index];
+      this.list.splice(index, 1, {
+        ...item,
+        envId,
+        envName,
+        env,
+        fallbackMsg,
+        updateMsg,
+        version,
+      });
+    }
   }
 }
