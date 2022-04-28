@@ -31,19 +31,22 @@ export default defineComponent({
     watch(props.moduleId, (val) => {
       envList.changeModuleId(val);
       envList.fetchList();
-      console.log(envList);
     });
 
     const [open, close, loading] = useDialog();
-    const handleDone = (formData: EnvBaseType) => {
-      envList.create(formData);
-      close();
-    };
 
     const handleClickAddBtn = () => {
       open({
         title: "新建环境",
-        component: () => <AddEnv done={handleDone} close={close}></AddEnv>,
+        component: () => (
+          <AddEnv
+            done={(formData: EnvBaseType) => {
+              envList.create(formData);
+              close();
+            }}
+            close={close}
+          ></AddEnv>
+        ),
       });
     };
 

@@ -102,8 +102,6 @@ export class EnvList {
   }
 
   fetchList() {
-    console.log("res");
-
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         const FAKE_DATA = this.moduleId === 1 ? FAKE_DATA1 : FAKE_DATA2;
