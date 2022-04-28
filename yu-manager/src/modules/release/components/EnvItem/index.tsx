@@ -19,6 +19,7 @@ import { SellerType } from "@/objects/seller";
 import classes from "./style.module.scss";
 import { EditPen } from "@element-plus/icons-vue";
 import { useDialog } from "@/hooks/useDialog";
+import MoveSeller from "../MoveSeller";
 
 export default defineComponent({
   name: "EnvItem",
@@ -35,14 +36,25 @@ export default defineComponent({
   setup(props) {
     const [open, close, loading] = useDialog();
 
-    const selection = ref<Array<SellerType>>([]);
+    const selectedSellerList = ref<Array<SellerType>>([]);
     const handleSelectionChange = (val: Array<SellerType>) => {
-      selection.value = val;
+      selectedSellerList.value = val;
     };
 
     const handleClickAddBtn = () => {};
 
-    const handleClickMoveBtn = (env: EnvType) => {};
+    const handleClickMoveBtn = (env: EnvType) => {
+      open({
+        title: `确认从环境${props.env.envName}迁移到环境${env.envName}`,
+        component: () => (
+          <MoveSeller
+            done={close}
+            close={close}
+            sellerList={selectedSellerList.value}
+          ></MoveSeller>
+        ),
+      });
+    };
 
     const restEnvList = computed(() =>
       props.envList.list.filter((env) => env !== props.env)
@@ -59,7 +71,6 @@ export default defineComponent({
 
     const handleEditEnv = (envId: number, formData: EnvBaseType) => {
       props.envList.update(envId, formData);
-
       close();
     };
 

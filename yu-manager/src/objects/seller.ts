@@ -4,18 +4,18 @@ export type SellerType = {
     operator: string
 }
 
-export class Seller {
-    sid: string
-    operateTime: string
-    operator: string
+// export class Seller {
+//     sid: string
+//     operateTime: string
+//     operator: string
 
-    constructor(sid: string, operateTime: string, operator: string) {
-        this.sid = sid
-        this.operateTime = operateTime
-        this.operator = operator
-    }
-}
+//     constructor(sid: string, operateTime: string, operator: string) {
+//         this.sid = sid
+//         this.operateTime = operateTime
+//         this.operator = operator
+//     }
+// }
 
-export class SellerList {
-    list: Array<Seller> = []
-}
+// export class SellerList {
+//     list: Array<Seller> = []
+// }
