@@ -8,7 +8,7 @@ import {
 } from "element-plus";
 import { reactive, ref, defineComponent } from "vue";
 import { useRouter } from "vue-router";
-import Login from "./objects/login";
+import Login from "../../objects/login";
 
 export default defineComponent({
   name: "Login",

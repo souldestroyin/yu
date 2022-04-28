@@ -1,5 +1,5 @@
 // tools
-import { defineComponent, ref, PropType } from "vue";
+import { defineComponent, ref, PropType, watch } from "vue";
 
 //components
 import {
@@ -9,10 +9,10 @@ import {
   ElTableColumn,
   ElDropdown,
 } from "element-plus";
-import AddSeller from "./addSeller";
+import AddSeller from "./AddSeller";
 
 // models
-import { Env } from "../objects/env";
+import { Env } from "../../../objects/env";
 
 // styles
 import classes from "./env.module.scss";
@@ -20,7 +20,7 @@ import { EditPen } from "@element-plus/icons-vue";
 import { useDialog } from "@/hooks/useDialog";
 
 // types
-import { SellerType } from "../objects/seller";
+import { SellerType } from "../../../objects/seller";
 
 export default defineComponent({
   name: "EnvComp",
@@ -45,6 +45,15 @@ export default defineComponent({
         </div>
       ),
     };
+
+    console.log(6666);
+
+    watch(
+      () => props,
+      (val) => {
+        console.log(val);
+      }
+    );
 
     const res = ref();
     const [open, close, loading] = useDialog({

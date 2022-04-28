@@ -1,8 +1,8 @@
 import filterXSS from 'xss'
 import md5 from 'js-md5'
-import { apiLogin } from '../apis/login';
+import { apiLogin } from '../modules/login/apis/login';
 import { setToken } from '@/tools/auth';
-import { setSid } from '../../../tools/auth';
+import { setSid } from '../tools/auth';
 type FormRule = (rule: any, value: string, callback: Function) => void;
 
 const validateSid: FormRule = (rule, value, callback) => {

@@ -1,12 +1,20 @@
 import { defineComponent, PropType, VNode, toRef, watch, ref } from "vue";
 import { ElDialog, ElLoading } from "element-plus";
 
+import classes from "./style.module.scss";
+
+console.log(classes);
+
 export default defineComponent({
   name: "YuDialog",
   props: {
     title: {
       type: String,
       required: true,
+    },
+    width: {
+      type: [String, Number],
+      default: 500,
     },
     body: {
       type: Function as PropType<() => VNode>,
@@ -35,8 +43,10 @@ export default defineComponent({
     );
 
     return () => (
-      <ElDialog modelValue={true} title={props.title}>
-        <div ref={dialogRef}>{props.body()}</div>
+      <ElDialog modelValue={true} title={props.title} width={props.width}>
+        <div class={classes.dialogWrap} ref={dialogRef}>
+          {props.body()}
+        </div>
       </ElDialog>
     );
   },

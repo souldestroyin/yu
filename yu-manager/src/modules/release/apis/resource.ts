@@ -1,5 +1,5 @@
 import request from '@/tools/request'
-import { ResourceType } from '../objects/resource'
+import { ResourceType } from '../../../objects/resource'
 
 const baseUrl = '/local/releasePage'
 

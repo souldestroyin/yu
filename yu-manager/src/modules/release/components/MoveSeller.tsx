@@ -1,6 +1,6 @@
 import { defineComponent, PropType } from "vue";
 import { ElButton, ElSelect, ElOption } from "element-plus";
-import { Env } from "../objects/env";
+import { Env } from "../../../objects/env";
 export default defineComponent({
   name: "MoveSeller",
   props: {
