@@ -140,13 +140,7 @@ export class EnvList {
     });
   }
 
-  create(
-    envName: string,
-    env: string,
-    fallbackMsg: string,
-    updateMsg: string,
-    version: string
-  ) {
+  create({ envName, env, fallbackMsg, updateMsg, version }: EnvBaseType) {
     const item = {
       envId: this.list[this.list.length - 1].envId++,
       envName,

@@ -1,5 +1,5 @@
 // tools
-import { defineComponent, ref, PropType, watch } from "vue";
+import { defineComponent, ref, PropType, watch, toRef } from "vue";
 
 //components
 import {
@@ -10,10 +10,9 @@ import {
   ElDropdown,
 } from "element-plus";
 import AddEnv from "../AddEnv";
-import AddSeller from "../AddSeller";
 
 // models
-import { Env, EnvBaseType } from "@/objects/env";
+import { Env, EnvBaseType, EnvList } from "@/objects/env";
 import { SellerType } from "@/objects/seller";
 
 // styles
@@ -25,11 +24,11 @@ export default defineComponent({
   name: "EnvItem",
   props: {
     env: {
-      type: Env,
+      type: Object as PropType<Env>,
       required: true,
     },
     envList: {
-      type: Array as PropType<Array<Env>>,
+      type: Array as PropType<Env[]>,
       required: true,
     },
   },
@@ -45,7 +44,6 @@ export default defineComponent({
       ),
     };
 
-    const res = ref();
     const [open, close, loading] = useDialog();
 
     const selection = ref<Array<SellerType>>([]);
@@ -57,8 +55,6 @@ export default defineComponent({
       console.log(999);
     };
 
-    const restEnvList = props.envList.filter((env) => env !== props.env);
-
     const handleClickMoveBtn = (env: Env) => {
       open({
         title: "修改环境",
@@ -68,13 +64,9 @@ export default defineComponent({
     const handleEditEnv = (formData: EnvBaseType) => {};
 
     return () => {
+      const restEnvList = props.envList.filter((env) => env !== props.env);
       return (
-        <ElCard
-          ref={res}
-          class={classes.container}
-          v-slots={slots}
-          shadow="never"
-        >
+        <ElCard class={classes.container} v-slots={slots} shadow="never">
           <div class={classes.actionLine}>
             <ElDropdown v-show={restEnvList.length}>
               {{

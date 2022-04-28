@@ -11,7 +11,7 @@ import EnvItem from "../EnvItem";
 import AddEnv from "../AddEnv";
 
 // modules
-import { EnvList } from "@/objects/env";
+import { EnvList, EnvBaseType } from "@/objects/env";
 
 // styles
 import classes from "./style.module.scss";
@@ -25,29 +25,19 @@ export default defineComponent({
     },
   },
   setup(props) {
-    const ver = ref(0);
+    let envList = reactive(new EnvList(props.moduleId.value));
+    envList.fetchList();
 
-    let envList = new EnvList(props.moduleId.value);
-    envList.fetchList().then(() => {
-      ver.value++;
-    });
     watch(props.moduleId, () => {
-      envList = new EnvList(props.moduleId.value);
-      envList.fetchList().then(() => {
-        ver.value++;
-      });
+      envList = reactive(new EnvList(props.moduleId.value));
+      envList.fetchList();
     });
 
     const [open, close, loading] = useDialog();
-    const handleDone = (
-      envName: string,
-      env: string,
-      fallbackMsg: string,
-      updateMsg: string,
-      version: string
-    ) => {
-      envList.create(envName, env, fallbackMsg, updateMsg, version);
-      ver.value++;
+    const handleDone = (formData: EnvBaseType) => {
+      envList.create(formData);
+      console.log("envList", envList);
+
       close();
     };
 
@@ -60,13 +50,12 @@ export default defineComponent({
 
     return () => (
       <div class={classes.container}>
-        <span style="display:none">{ver.value}</span>
         <div>
           <ElButton icon={CirclePlus} type="text" onClick={handleClickAddBtn}>
             新建环境
           </ElButton>
         </div>
-        <div key={ver.value} class={classes.envContainer}>
+        <div class={classes.envContainer}>
           {envList.list.map((env) => (
             <EnvItem env={env} envList={envList.list} />
           ))}
