@@ -1,6 +1,7 @@
-import { defineComponent, reactive, ref } from "vue";
+import { defineComponent, PropType, reactive, ref } from "vue";
 import type { FormInstance, FormRules } from "element-plus";
 import { ElAlert, ElFormItem, ElForm, ElInput, ElButton } from "element-plus";
+import { Env, EnvBaseType } from "@/objects/env";
 
 export default defineComponent({
   name: "AddEnv",
@@ -9,14 +10,19 @@ export default defineComponent({
       type: Function,
       required: true,
     },
+    env: {
+      type: Object as PropType<EnvBaseType>,
+    },
   },
   setup(props) {
-    const formData = reactive({
-      envName: "",
-      env: "",
-      updateMsg: "",
-      fallbackMsg: "",
-      version: "",
+    const { env } = props;
+
+    const formData = reactive<EnvBaseType>({
+      envName: env ? env.envName : "",
+      env: env ? env.env : "",
+      updateMsg: env ? env.updateMsg : "",
+      fallbackMsg: env ? env.fallbackMsg : "",
+      version: env ? env.version : "",
     });
     const formRef = ref<FormInstance>();
 
@@ -31,11 +37,7 @@ export default defineComponent({
         return;
       }
       props.handleDone(
-        formData.envName,
-        formData.env,
-        formData.fallbackMsg,
-        formData.updateMsg,
-        formData.version
+        env && env.envId ? { ...formData, envId: env.envId } : formData
       );
     };
     return () => (

@@ -69,6 +69,19 @@ const FAKE_DATA2 = [
   },
 ];
 
+export type EnvBaseType = {
+  envId?: number;
+  envName: string; //环境名称
+  env: string; //环境标识
+  fallbackMsg: string; // 回退所需信息
+  updateMsg: string; // 升级所需信息
+  version: string;
+};
+
+// export type EnvEditType = EnvAddType & { envId: number };
+
+export type EnvType = EnvBaseType & { sidList: SellerType[] };
+
 export class Env {
   envId: number;
   envName: string; //环境名称

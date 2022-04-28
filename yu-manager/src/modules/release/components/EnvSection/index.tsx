@@ -1,5 +1,5 @@
 // tools
-import { defineComponent, PropType, ref, Ref, watch } from "vue";
+import { defineComponent, PropType, reactive, ref, Ref, watch } from "vue";
 
 // hooks
 import { useDialog } from "@/hooks/useDialog";
@@ -62,11 +62,9 @@ export default defineComponent({
       <div class={classes.container}>
         <span style="display:none">{ver.value}</span>
         <div>
-          <ElButton
-            icon={CirclePlus}
-            type="text"
-            onClick={handleClickAddBtn}
-          ></ElButton>
+          <ElButton icon={CirclePlus} type="text" onClick={handleClickAddBtn}>
+            新建环境
+          </ElButton>
         </div>
         <div key={ver.value} class={classes.envContainer}>
           {envList.list.map((env) => (

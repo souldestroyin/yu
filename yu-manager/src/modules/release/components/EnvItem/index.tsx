@@ -9,10 +9,11 @@ import {
   ElTableColumn,
   ElDropdown,
 } from "element-plus";
+import AddEnv from "../AddEnv";
 import AddSeller from "../AddSeller";
 
 // models
-import { Env } from "@/objects/env";
+import { Env, EnvBaseType } from "@/objects/env";
 import { SellerType } from "@/objects/seller";
 
 // styles
@@ -44,90 +45,81 @@ export default defineComponent({
       ),
     };
 
-    console.log(6666);
-
-    watch(
-      () => props,
-      (val) => {
-        console.log(val);
-      }
-    );
-
     const res = ref();
     const [open, close, loading] = useDialog();
-
-    const handleClickAddBtn = () => {
-      open({
-        title: "test",
-        component: () => <AddSeller handleClickSubmitBtn={close}></AddSeller>,
-      });
-      loading.value = true;
-    };
 
     const selection = ref<Array<SellerType>>([]);
     const handleSelectionChange = (val: Array<SellerType>) => {
       selection.value = val;
     };
 
-    const handleClickMoveBtn = (env: Env) => {
-      console.log(env);
+    const handleClickAddBtn = () => {
+      console.log(999);
     };
 
     const restEnvList = props.envList.filter((env) => env !== props.env);
 
-    console.log("restEnvList", restEnvList);
+    const handleClickMoveBtn = (env: Env) => {
+      open({
+        title: "修改环境",
+        component: () => <AddEnv handleDone={handleEditEnv} env={env}></AddEnv>,
+      });
+    };
+    const handleEditEnv = (formData: EnvBaseType) => {};
 
-    return () => (
-      <ElCard
-        ref={res}
-        class={classes.container}
-        v-slots={slots}
-        shadow="never"
-      >
-        <div class={classes.actionLine}>
-          <ElDropdown v-show={restEnvList.length}>
-            {{
-              default: () => (
-                <ElButton type="primary" plain>
-                  迁移卖家至新环境
-                </ElButton>
-              ),
-              dropdown: () => (
-                <el-dropdown-menu>
-                  {restEnvList.map((env) => (
-                    <el-dropdown-item onClick={() => handleClickMoveBtn(env)}>
-                      {env.envName}
-                    </el-dropdown-item>
-                  ))}
-                </el-dropdown-menu>
-              ),
-            }}
-          </ElDropdown>
-
-          <ElButton onClick={handleClickAddBtn}>新增</ElButton>
-          <ElButton type="danger" plain>
-            删除
-          </ElButton>
-        </div>
-
-        <ElTable
-          data={props.env.sidList}
-          onSelection-change={handleSelectionChange}
+    return () => {
+      return (
+        <ElCard
+          ref={res}
+          class={classes.container}
+          v-slots={slots}
+          shadow="never"
         >
-          <ElTableColumn type="selection" width="40"></ElTableColumn>
-          <ElTableColumn label="卖家名称" prop="sid" sortable></ElTableColumn>
-          <ElTableColumn
-            label="迁移时间"
-            prop="operateTime"
-            sortable
-          ></ElTableColumn>
-          <ElTableColumn
-            label="迁移人"
-            prop="operator"
-            sortable
-          ></ElTableColumn>
-        </ElTable>
-      </ElCard>
-    );
+          <div class={classes.actionLine}>
+            <ElDropdown v-show={restEnvList.length}>
+              {{
+                default: () => (
+                  <ElButton type="primary" plain style="margin-right: 12px">
+                    迁移卖家至新环境
+                  </ElButton>
+                ),
+                dropdown: () => (
+                  <el-dropdown-menu>
+                    {restEnvList.map((env) => (
+                      <el-dropdown-item onClick={() => handleClickMoveBtn(env)}>
+                        {env.envName}
+                      </el-dropdown-item>
+                    ))}
+                  </el-dropdown-menu>
+                ),
+              }}
+            </ElDropdown>
+
+            <ElButton onClick={handleClickAddBtn}>新增</ElButton>
+            <ElButton type="danger" plain>
+              删除
+            </ElButton>
+          </div>
+
+          <ElTable
+            data={props.env.sidList}
+            onSelection-change={handleSelectionChange}
+          >
+            <ElTableColumn type="selection" width="40"></ElTableColumn>
+            <ElTableColumn label="卖家名称" prop="sid" sortable></ElTableColumn>
+            <ElTableColumn
+              label="迁移时间"
+              prop="operateTime"
+              sortable
+            ></ElTableColumn>
+            <ElTableColumn
+              label="迁移人"
+              prop="operator"
+              sortable
+            ></ElTableColumn>
+          </ElTable>
+        </ElCard>
+      );
+    };
   },
 });
