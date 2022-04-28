@@ -71,21 +71,21 @@ const FAKE_DATA2 = [
 
 export class Env {
   envId: number;
-  envName: string;
-  env: string;
-  fallbackMsg: string;
-  updateMsg: string;
+  envName: string; //环境名称
+  env: string; //环境标识
+  fallbackMsg: string; // 回退所需信息
+  updateMsg: string; // 升级所需信息
   version: string;
-  sidList: SellerType[];
+  sidList: SellerType[]; //卖家列表
 
   constructor(
     envId: number,
     envName: string,
     env: string,
-    fallbackMsg: string, // 回退所需信息
-    updateMsg: string, // 升级所需信息
+    fallbackMsg: string,
+    updateMsg: string,
     version: string,
-    sidList: SellerType[] //卖家列表
+    sidList: SellerType[]
   ) {
     this.envId = envId;
     this.envName = envName;
@@ -125,5 +125,25 @@ export class EnvList {
         resolve(9);
       }, 1000);
     });
+  }
+
+  create(
+    envName: string,
+    env: string,
+    fallbackMsg: string,
+    updateMsg: string,
+    version: string
+  ) {
+    const item = {
+      envId: this.list[this.list.length - 1].envId++,
+      envName,
+      env,
+      fallbackMsg,
+      updateMsg,
+      version,
+      sidList: [],
+    };
+
+    this.list.push(item);
   }
 }

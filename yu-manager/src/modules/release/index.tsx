@@ -1,20 +1,21 @@
 // tools
 import { defineComponent, ref, watch } from "vue";
 
+// hooks
+import { useDialog } from "@/hooks/useDialog";
+
 // components
 import { ElButton, ElTabs, ElTabPane } from "element-plus";
 import { Plus } from "@element-plus/icons-vue";
 import EnvSection from "./sections/EnvSection";
+import AddModuler from "./components/AddModuler";
 
 // modules
-import ModulerList from "../../objects/moduler";
-import ResourceList from "../../objects/resource";
-import { EnvList } from "../../objects/env";
+import ModulerList from "@/objects/moduler";
+import ResourceList from "@/objects/resource";
 
 // styles
 import classes from "./style.module.scss";
-import { useDialog } from "../../hooks/useDialog";
-import AddModuler from "./components/AddModuler";
 
 export default defineComponent({
   name: "ReleasePage",
