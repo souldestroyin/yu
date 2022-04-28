@@ -8,6 +8,7 @@ const FAKE_DATA1 = [
     fallbackMsg: "回退所需信息",
     updateMsg: "升级所需信息",
     version: "1.0",
+    isDefault: true,
     sidList: [
       //卖家列表
       {
@@ -32,6 +33,7 @@ const FAKE_DATA2 = [
     fallbackMsg: "回退所需信息",
     updateMsg: "升级所需信息",
     version: "1.0",
+    isDefault: true,
     sidList: [
       //卖家列表
       {
@@ -53,6 +55,7 @@ const FAKE_DATA2 = [
     fallbackMsg: "回退所需信息33",
     updateMsg: "升级所需信息333",
     version: "1.0.3",
+    isDefault: false,
     sidList: [
       //卖家列表
       {
@@ -80,7 +83,11 @@ export type EnvBaseType = {
 
 // export type EnvEditType = EnvAddType & { envId: number };
 
-export type EnvType = EnvBaseType & { envId: number; sidList: SellerType[] };
+export type EnvType = EnvBaseType & {
+  envId: number;
+  isDefault: boolean;
+  sidList: SellerType[];
+};
 
 export class EnvList {
   moduleId: number;
@@ -109,6 +116,7 @@ export class EnvList {
       updateMsg,
       version,
       sidList: [],
+      isDefault: false,
     };
 
     this.list.push(item);
@@ -132,5 +140,8 @@ export class EnvList {
         version,
       });
     }
+  }
+  setDefault(env: EnvType) {
+    env.isDefault = true;
   }
 }

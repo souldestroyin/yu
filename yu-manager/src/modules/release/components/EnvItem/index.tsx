@@ -67,14 +67,21 @@ export default defineComponent({
       open({
         title: "修改环境",
         component: () => (
-          <AddEnv close={close} done={handleEditEnv} env={props.env}></AddEnv>
+          <AddEnv
+            close={close}
+            done={(envId: number, formData: EnvBaseType) => {
+              props.envList.update(envId, formData);
+              close();
+            }}
+            env={props.env}
+          ></AddEnv>
         ),
       });
     };
 
-    const handleEditEnv = (envId: number, formData: EnvBaseType) => {
-      props.envList.update(envId, formData);
-      close();
+    const handleClickSetDefaultBtn = () => {
+      props.envList.setDefault(props.env);
+      props.envList.fetchList();
     };
 
     return () => {
@@ -125,10 +132,22 @@ export default defineComponent({
                   <ElButton type="danger" plain>
                     删除
                   </ElButton>
+
+                  {props.env.isDefault ? (
+                    <span class={classes.defaultBtn}>默认环境</span>
+                  ) : (
+                    <ElButton
+                      class={classes.defaultBtn}
+                      onClick={handleClickSetDefaultBtn}
+                    >
+                      设置为默认环境
+                    </ElButton>
+                  )}
                 </div>
 
                 <ElTable
                   data={props.env.sidList}
+                  stripe
                   onSelection-change={handleSelectionChange}
                 >
                   <ElTableColumn type="selection" width="40"></ElTableColumn>
