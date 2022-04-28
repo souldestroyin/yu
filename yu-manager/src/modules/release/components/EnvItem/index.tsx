@@ -85,7 +85,7 @@ export default defineComponent({
         shadow="never"
       >
         <div class={classes.actionLine}>
-          <ElDropdown>
+          <ElDropdown v-show={restEnvList.length}>
             {{
               default: () => (
                 <ElButton type="primary" plain>
