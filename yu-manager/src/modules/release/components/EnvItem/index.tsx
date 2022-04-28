@@ -52,10 +52,11 @@ export default defineComponent({
       open({
         title: "修改环境",
         component: () => (
-          <AddEnv handleDone={handleEditEnv} env={props.env}></AddEnv>
+          <AddEnv close={close} done={handleEditEnv} env={props.env}></AddEnv>
         ),
       });
     };
+
     const handleEditEnv = (envId: number, formData: EnvBaseType) => {
       props.envList.update(envId, formData);
 

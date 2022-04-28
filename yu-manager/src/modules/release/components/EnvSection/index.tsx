@@ -42,7 +42,7 @@ export default defineComponent({
     const handleClickAddBtn = () => {
       open({
         title: "新建环境",
-        component: () => <AddEnv handleDone={handleDone}></AddEnv>,
+        component: () => <AddEnv done={handleDone} close={close}></AddEnv>,
       });
     };
 

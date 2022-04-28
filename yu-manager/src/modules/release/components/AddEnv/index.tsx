@@ -6,8 +6,12 @@ import { EnvBaseType } from "@/objects/env";
 export default defineComponent({
   name: "AddEnv",
   props: {
-    handleDone: {
+    done: {
       type: Function,
+      required: true,
+    },
+    close: {
+      type: Function as PropType<(evt: MouseEvent) => any>,
       required: true,
     },
     env: {
@@ -38,9 +42,9 @@ export default defineComponent({
       }
 
       if (env) {
-        props.handleDone(env.envId, formData);
+        props.done(env.envId, formData);
       } else {
-        props.handleDone(formData);
+        props.done(formData);
       }
     };
     return () => (
@@ -57,7 +61,7 @@ export default defineComponent({
             closable={false}
           ></ElAlert>
           <ElFormItem label="环境标识" prop="env" required>
-            <ElInput v-model={formData.env}></ElInput>
+            <ElInput v-model={formData.env} disabled={!!props.env}></ElInput>
           </ElFormItem>
 
           <ElFormItem label="版本号" prop="version" required>
@@ -86,9 +90,7 @@ export default defineComponent({
         </ElForm>
 
         <footer>
-          <ElButton type="warning" plain>
-            取消
-          </ElButton>
+          <ElButton onClick={props.close}>取消</ElButton>
           <ElButton type="primary" onClick={handleClickSubmitBtn}>
             确认
           </ElButton>
