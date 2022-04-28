@@ -6,8 +6,8 @@ import { useDialog } from "@/hooks/useDialog";
 
 // components
 import { ElButton, ElTabs, ElTabPane } from "element-plus";
-import { Plus } from "@element-plus/icons-vue";
-import EnvSection from "./sections/EnvSection";
+import { CirclePlus } from "@element-plus/icons-vue";
+import EnvSection from "./components/EnvSection";
 import AddModuler from "./components/AddModuler";
 
 // modules
@@ -31,19 +31,24 @@ export default defineComponent({
     const apiList = new ResourceList(currentModulId.value, 2);
     const settimeList = new ResourceList(currentModulId.value, 3);
 
-    const [open, close, loading] = useDialog({
-      title: "新建模块",
-      body: () => (
-        <AddModuler
-          nameList={modulerList.list.map((moduler) => moduler.name)}
-          handleDone={handleDone}
-        ></AddModuler>
-      ),
-    });
+    const [open, close, loading] = useDialog();
     const handleDone = (title: string, name: string) => {
       modulerList.create(title, name);
       ver.value++;
+      loading.value = true;
       close();
+    };
+
+    const handleClickAddBtn = () => {
+      open({
+        title: "新建模块",
+        component: () => (
+          <AddModuler
+            nameList={modulerList.list.map((moduler) => moduler.name)}
+            handleDone={handleDone}
+          ></AddModuler>
+        ),
+      });
     };
 
     return () => (
@@ -51,7 +56,11 @@ export default defineComponent({
         <span style="display:none">{ver.value}</span>
         <div class={classes.left}>
           <div class={classes.actionLine}>
-            <ElButton icon={Plus} type="text" onClick={open}></ElButton>
+            <ElButton
+              icon={CirclePlus}
+              type="text"
+              onClick={handleClickAddBtn}
+            ></ElButton>
           </div>
 
           <ElTabs

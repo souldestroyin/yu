@@ -6,9 +6,9 @@ import { useDialog } from "@/hooks/useDialog";
 
 // components
 import { ElButton, ElTabs, ElTabPane } from "element-plus";
-import { Plus } from "@element-plus/icons-vue";
-import EnvItem from "../components/EnvItem";
-import AddEnv from "../components/AddEnv";
+import { CirclePlus } from "@element-plus/icons-vue";
+import EnvItem from "../EnvItem";
+import AddEnv from "../AddEnv";
 
 // modules
 import { EnvList } from "@/objects/env";
@@ -60,7 +60,7 @@ export default defineComponent({
         <span style="display:none">{ver.value}</span>
         <div>
           <ElButton
-            icon={Plus}
+            icon={CirclePlus}
             type="text"
             onClick={handleClickAddBtn}
           ></ElButton>

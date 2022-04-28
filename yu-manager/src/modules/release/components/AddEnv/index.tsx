@@ -1,6 +1,6 @@
 import { defineComponent, reactive, ref } from "vue";
 import type { FormInstance, FormRules } from "element-plus";
-import { ElMessage, ElFormItem, ElForm, ElInput, ElButton } from "element-plus";
+import { ElAlert, ElFormItem, ElForm, ElInput, ElButton } from "element-plus";
 
 export default defineComponent({
   name: "AddEnv",
@@ -45,6 +45,12 @@ export default defineComponent({
             <ElInput v-model={formData.envName}></ElInput>
           </ElFormItem>
 
+          <ElAlert
+            type="info"
+            show-icon
+            title="环境标识在创建后不可修改"
+            closable={false}
+          ></ElAlert>
           <ElFormItem label="环境标识" prop="env" required>
             <ElInput v-model={formData.env}></ElInput>
           </ElFormItem>

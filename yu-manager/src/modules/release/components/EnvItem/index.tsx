@@ -9,18 +9,16 @@ import {
   ElTableColumn,
   ElDropdown,
 } from "element-plus";
-import AddSeller from "./AddSeller";
+import AddSeller from "../AddSeller";
 
 // models
-import { Env } from "../../../objects/env";
+import { Env } from "@/objects/env";
+import { SellerType } from "@/objects/seller";
 
 // styles
-import classes from "./env.module.scss";
+import classes from "./style.module.scss";
 import { EditPen } from "@element-plus/icons-vue";
 import { useDialog } from "@/hooks/useDialog";
-
-// types
-import { SellerType } from "../../../objects/seller";
 
 export default defineComponent({
   name: "EnvItem",
