@@ -97,7 +97,13 @@ export class EnvList {
     this.moduleId = moduleId;
   }
 
+  changeModuleId(moduleId: number) {
+    this.moduleId = moduleId;
+  }
+
   fetchList() {
+    console.log("res");
+
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         const FAKE_DATA = this.moduleId === 1 ? FAKE_DATA1 : FAKE_DATA2;

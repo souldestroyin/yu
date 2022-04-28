@@ -28,9 +28,10 @@ export default defineComponent({
     let envList = reactive(new EnvList(props.moduleId.value));
     envList.fetchList();
 
-    watch(props.moduleId, () => {
-      envList = reactive(new EnvList(props.moduleId.value));
+    watch(props.moduleId, (val) => {
+      envList.changeModuleId(val);
       envList.fetchList();
+      console.log(envList);
     });
 
     const [open, close, loading] = useDialog();
