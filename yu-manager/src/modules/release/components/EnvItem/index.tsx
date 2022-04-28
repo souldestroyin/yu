@@ -54,13 +54,13 @@ export default defineComponent({
     );
 
     const res = ref();
-    const [open, close, loading] = useDialog({
-      title: "test",
-      body: () => <AddSeller handleClickSubmitBtn={close}></AddSeller>,
-    });
+    const [open, close, loading] = useDialog();
 
     const handleClickAddBtn = () => {
-      open();
+      open({
+        title: "test",
+        component: () => <AddSeller handleClickSubmitBtn={close}></AddSeller>,
+      });
       loading.value = true;
     };
 
@@ -72,6 +72,10 @@ export default defineComponent({
     const handleClickMoveBtn = (env: Env) => {
       console.log(env);
     };
+
+    const restEnvList = props.envList.filter((env) => env !== props.env);
+
+    console.log("restEnvList", restEnvList);
 
     return () => (
       <ElCard
@@ -90,13 +94,11 @@ export default defineComponent({
               ),
               dropdown: () => (
                 <el-dropdown-menu>
-                  {props.envList
-                    .filter((env) => env !== props.env)
-                    .map((env) => (
-                      <el-dropdown-item onClick={() => handleClickMoveBtn(env)}>
-                        {env.envName}
-                      </el-dropdown-item>
-                    ))}
+                  {restEnvList.map((env) => (
+                    <el-dropdown-item onClick={() => handleClickMoveBtn(env)}>
+                      {env.envName}
+                    </el-dropdown-item>
+                  ))}
                 </el-dropdown-menu>
               ),
             }}

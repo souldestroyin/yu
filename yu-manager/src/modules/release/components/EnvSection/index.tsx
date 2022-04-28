@@ -13,6 +13,9 @@ import AddEnv from "../AddEnv";
 // modules
 import { EnvList } from "@/objects/env";
 
+// styles
+import classes from "./style.module.scss";
+
 export default defineComponent({
   name: "EnvSection",
   props: {
@@ -56,7 +59,7 @@ export default defineComponent({
     };
 
     return () => (
-      <div>
+      <div class={classes.container}>
         <span style="display:none">{ver.value}</span>
         <div>
           <ElButton
@@ -65,9 +68,11 @@ export default defineComponent({
             onClick={handleClickAddBtn}
           ></ElButton>
         </div>
-        {envList.list.map((env) => (
-          <EnvItem env={env} envList={envList.list} />
-        ))}
+        <div key={ver.value} class={classes.envContainer}>
+          {envList.list.map((env) => (
+            <EnvItem env={env} envList={envList.list} />
+          ))}
+        </div>
       </div>
     );
   },
