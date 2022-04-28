@@ -35,10 +35,7 @@ export default defineComponent({
       });
     });
 
-    const [open, close, loading] = useDialog({
-      title: "新建模块",
-      body: () => <AddEnv handleDone={handleDone}></AddEnv>,
-    });
+    const [open, close, loading] = useDialog();
     const handleDone = (
       envName: string,
       env: string,
@@ -51,11 +48,22 @@ export default defineComponent({
       close();
     };
 
+    const handleClickAddBtn = () => {
+      open({
+        title: "新建环境",
+        component: () => <AddEnv handleDone={handleDone}></AddEnv>,
+      });
+    };
+
     return () => (
       <div>
         <span style="display:none">{ver.value}</span>
         <div>
-          <ElButton icon={Plus} type="text" onClick={open}></ElButton>
+          <ElButton
+            icon={Plus}
+            type="text"
+            onClick={handleClickAddBtn}
+          ></ElButton>
         </div>
         {envList.list.map((env) => (
           <EnvItem env={env} envList={envList.list} />

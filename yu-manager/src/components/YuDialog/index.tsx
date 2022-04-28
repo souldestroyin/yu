@@ -16,7 +16,7 @@ export default defineComponent({
       type: [String, Number],
       default: 500,
     },
-    body: {
+    component: {
       type: Function as PropType<() => VNode>,
       required: true,
     },
@@ -45,7 +45,7 @@ export default defineComponent({
     return () => (
       <ElDialog modelValue={true} title={props.title} width={props.width}>
         <div class={classes.dialogWrap} ref={dialogRef}>
-          {props.body()}
+          {props.component()}
         </div>
       </ElDialog>
     );
