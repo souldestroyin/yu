@@ -4,7 +4,7 @@ import { defineComponent, ref, watch } from "vue";
 // components
 import { ElButton, ElTabs, ElTabPane } from "element-plus";
 import { Plus } from "@element-plus/icons-vue";
-import EnvComp from "./components/env";
+import EnvSection from "./sections/EnvSection";
 
 // modules
 import ModulerList from "../../objects/moduler";
@@ -24,33 +24,26 @@ export default defineComponent({
     const modulerList = new ModulerList();
     modulerList.fetchList();
 
-    const currentModuler = ref(modulerList.getDefaultModuleId());
-    let envList = new EnvList(currentModuler.value);
-    envList.fetchList().then(() => {
-      console.log(990909);
+    const currentModulId = ref(modulerList.getDefaultModuleId());
 
-      ver.value++;
-    });
-
-    watch(currentModuler, () => {
-      envList = new EnvList(currentModuler.value);
-      envList.fetchList().then(() => {
-        ver.value++;
-      });
-    });
-
-    const pageList = new ResourceList(currentModuler.value, 1);
-    const apiList = new ResourceList(currentModuler.value, 2);
-    const settimeList = new ResourceList(currentModuler.value, 3);
+    const pageList = new ResourceList(currentModulId.value, 1);
+    const apiList = new ResourceList(currentModulId.value, 2);
+    const settimeList = new ResourceList(currentModulId.value, 3);
 
     const [open, close, loading] = useDialog({
       title: "新建模块",
       body: () => (
         <AddModuler
           nameList={modulerList.list.map((moduler) => moduler.name)}
+          handleDone={handleDone}
         ></AddModuler>
       ),
     });
+    const handleDone = (title: string, name: string) => {
+      modulerList.create(title, name);
+      ver.value++;
+      close();
+    };
 
     return () => (
       <div class={classes.container}>
@@ -61,7 +54,7 @@ export default defineComponent({
           </div>
 
           <ElTabs
-            v-model={currentModuler.value}
+            v-model={currentModulId.value}
             tabPosition="left"
             class={classes.modulerList}
           >
@@ -78,9 +71,7 @@ export default defineComponent({
         <div class={classes.middle}></div>
 
         <div class={classes.right}>
-          {envList.list.map((env) => (
-            <EnvComp env={env} envList={envList.list} />
-          ))}
+          <EnvSection moduleId={currentModulId}></EnvSection>
         </div>
       </div>
     );

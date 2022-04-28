@@ -7,6 +7,10 @@ type ModulerType = {
 export default class ModulerList {
     list: Array<ModulerType> = []
 
+    getList() {
+        return this.list
+    }
+
 
     isEmpty() {
         return this.list.length === 0
@@ -51,7 +55,7 @@ export default class ModulerList {
             name
         }
 
-        this.list.unshift(item)
+        this.list.push(item)
     }
 
     delete(moduleId: number) {

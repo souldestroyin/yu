@@ -9,11 +9,15 @@ export default defineComponent({
       type: Array,
       required: true,
     },
+    handleDone: {
+      type: Function,
+      required: true,
+    },
   },
   setup(props) {
     const formData = reactive({
-      name: "",
       title: "",
+      name: "",
     });
     const formRef = ref<FormInstance>();
 
@@ -21,16 +25,13 @@ export default defineComponent({
       if (!formRef.value) {
         return;
       }
+
       const isValid = await formRef.value.validate();
 
       if (!isValid) {
         return;
       }
-
-      //   if (props.nameList.includes(formData.name)) {
-      //     ElMessage.warning('模块标识不可重复')
-      //     return;
-      //   }
+      props.handleDone(formData.title, formData.name);
     };
 
     const titleRules = [
@@ -39,6 +40,8 @@ export default defineComponent({
         validator: (rule: any, value: any, callback: any) => {
           if (value === "") {
             callback(new Error("模块标题必填"));
+          } else {
+            callback();
           }
         },
       },
@@ -50,9 +53,10 @@ export default defineComponent({
         validator: (rule: any, value: any, callback: any) => {
           if (value === "") {
             callback(new Error("模块标识必填"));
-          }
-          if (props.nameList.includes(value)) {
+          } else if (props.nameList.includes(value)) {
             callback(new Error("模块标识不可重复"));
+          } else {
+            callback();
           }
         },
       },

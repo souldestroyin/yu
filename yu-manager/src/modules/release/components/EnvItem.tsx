@@ -23,7 +23,7 @@ import { useDialog } from "@/hooks/useDialog";
 import { SellerType } from "../../../objects/seller";
 
 export default defineComponent({
-  name: "EnvComp",
+  name: "EnvItem",
   props: {
     env: {
       type: Env,
