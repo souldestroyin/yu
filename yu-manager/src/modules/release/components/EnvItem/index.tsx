@@ -48,7 +48,10 @@ export default defineComponent({
         title: `确认从环境${props.env.envName}迁移到环境${env.envName}`,
         component: () => (
           <MoveSeller
-            done={close}
+            done={() => {
+              props.envList.fetchList();
+              close();
+            }}
             close={close}
             sellerList={selectedSellerList.value}
           ></MoveSeller>
