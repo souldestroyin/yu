@@ -33,7 +33,6 @@ import AddModuler from "./components/AddModuler";
 
 // modules
 import ModulerList, { ModulerType } from "@/objects/moduler";
-import ResourceList from "@/objects/resource";
 
 // styles
 import classes from "./style.module.scss";
@@ -47,9 +46,9 @@ export default defineComponent({
     modulerList.fetchList();
 
     const currentModulId = ref(modulerList.getDefaultModuleId());
-    watch(currentModulId, () => {
-      ver.value++;
-    });
+    // watch(currentModulId, () => {
+    //   ver.value++;
+    // });
 
     const [open, close, loading] = useDialog();
 
@@ -73,7 +72,7 @@ export default defineComponent({
 
     const handleClickTab = (moduler: ModulerType) => {
       open({
-        title: "修改模块",
+        title: "编辑模块",
         component: () => (
           <AddModuler
             nameList={modulerList.list.map((moduler) => moduler.name)}
@@ -93,14 +92,7 @@ export default defineComponent({
     return () => (
       <ElContainer class={classes.container}>
         <ElHeader class={classes.top}>
-          {/* <div class={classes.actionLine}>
-            <ElButton
-              icon={CirclePlus}
-              type="text"
-              onClick={handleClickAddBtn}
-            ></ElButton>
-          </div> */}
-
+          <span style="display:none">{ver.value}</span>
           <ElTabs
             v-model={currentModulId.value}
             class={classes.modulerList}
