@@ -81,8 +81,6 @@ export type EnvBaseType = {
   version: string;
 };
 
-// export type EnvEditType = EnvAddType & { envId: number };
-
 export type EnvType = EnvBaseType & {
   envId: number;
   isDefault: boolean;
@@ -94,10 +92,6 @@ export class EnvList {
   list: Array<EnvType> = [];
 
   constructor(moduleId: number) {
-    this.moduleId = moduleId;
-  }
-
-  changeModuleId(moduleId: number) {
     this.moduleId = moduleId;
   }
 
@@ -147,7 +141,11 @@ export class EnvList {
   }
   setDefault(env: EnvType) {
     env.isDefault = true;
+
+    this.fetchList();
   }
 
-  delete(env: EnvType) {}
+  delete(env: EnvType) {
+    this.fetchList();
+  }
 }

@@ -6,7 +6,9 @@ import { useDialog } from "@/hooks/useDialog";
 
 // components
 import { ElButton, ElTabs, ElTabPane } from "element-plus";
-import { CirclePlus } from "@element-plus/icons-vue";
+import { CirclePlus, VideoCamera } from "@element-plus/icons-vue";
+
+import ResourceSection from "./components/ResourceSection";
 import EnvSection from "./components/EnvSection";
 import AddModuler from "./components/AddModuler";
 
@@ -26,18 +28,11 @@ export default defineComponent({
     modulerList.fetchList();
 
     const currentModulId = ref(modulerList.getDefaultModuleId());
-
-    const pageList = new ResourceList(currentModulId.value, 1);
-    const apiList = new ResourceList(currentModulId.value, 2);
-    const settimeList = new ResourceList(currentModulId.value, 3);
+    watch(currentModulId, () => {
+      ver.value++;
+    });
 
     const [open, close, loading] = useDialog();
-    const handleDone = (title: string, name: string) => {
-      modulerList.create(title, name);
-      ver.value++;
-      loading.value = true;
-      close();
-    };
 
     const handleClickAddBtn = () => {
       open({
@@ -45,7 +40,12 @@ export default defineComponent({
         component: () => (
           <AddModuler
             nameList={modulerList.list.map((moduler) => moduler.name)}
-            handleDone={handleDone}
+            done={(title: string, name: string) => {
+              modulerList.create(title, name);
+              ver.value++;
+              loading.value = true;
+              close();
+            }}
           ></AddModuler>
         ),
       });
@@ -78,10 +78,18 @@ export default defineComponent({
           </ElTabs>
         </div>
 
-        <div class={classes.middle}></div>
+        <div class={classes.middle}>
+          <ResourceSection
+            key={currentModulId.value}
+            moduleId={currentModulId.value}
+          ></ResourceSection>
+        </div>
 
         <div class={classes.right}>
-          <EnvSection moduleId={currentModulId}></EnvSection>
+          <EnvSection
+            key={currentModulId.value}
+            moduleId={currentModulId.value}
+          ></EnvSection>
         </div>
       </div>
     );

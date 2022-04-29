@@ -20,18 +20,13 @@ export default defineComponent({
   name: "EnvSection",
   props: {
     moduleId: {
-      type: Object as PropType<Ref<number>>,
+      type: Number,
       required: true,
     },
   },
   setup(props) {
-    let envList = reactive(new EnvList(props.moduleId.value));
+    const envList = reactive(new EnvList(props.moduleId));
     envList.fetchList();
-
-    watch(props.moduleId, (val) => {
-      envList.changeModuleId(val);
-      envList.fetchList();
-    });
 
     const [open, close, loading] = useDialog();
 

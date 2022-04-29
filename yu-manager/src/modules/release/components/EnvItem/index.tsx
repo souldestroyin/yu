@@ -86,12 +86,10 @@ export default defineComponent({
 
     const handleClickSetDefaultBtn = () => {
       props.envList.setDefault(props.env);
-      props.envList.fetchList();
     };
 
     const handleConfirmDeleteEnv = () => {
       props.envList.delete(props.env);
-      props.envList.fetchList();
     };
 
     return () => {

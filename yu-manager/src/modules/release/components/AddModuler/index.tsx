@@ -9,7 +9,7 @@ export default defineComponent({
       type: Array,
       required: true,
     },
-    handleDone: {
+    done: {
       type: Function,
       required: true,
     },
@@ -31,7 +31,7 @@ export default defineComponent({
       if (!isValid) {
         return;
       }
-      props.handleDone(formData.title, formData.name);
+      props.done(formData.title, formData.name);
     };
 
     const titleRules = [
