@@ -15,7 +15,10 @@ import {
 import { CirclePlus } from "@element-plus/icons-vue";
 
 // modules
-import ResourceList, { RourceFormType } from "@/objects/resource";
+import ResourceList, {
+  RESOURCE_TYPE_LIST,
+  RourceFormType,
+} from "@/objects/resource";
 
 // styles
 import classes from "./style.module.scss";
@@ -30,7 +33,7 @@ export default defineComponent({
     },
   },
   setup(props) {
-    const activeNames = ref([1, 2, 3]);
+    const activeNames = ref(RESOURCE_TYPE_LIST.map((o) => o.id));
     const ver = ref(0);
 
     const pageList = new ResourceList(props.moduleId, 1);

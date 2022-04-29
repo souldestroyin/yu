@@ -10,7 +10,11 @@ import {
   ElRadio,
 } from "element-plus";
 import { ModulerType } from "@/objects/moduler";
-import { RourceFormType, ResourceType } from "@/objects/resource";
+import {
+  RourceFormType,
+  ResourceType,
+  RESOURCE_TYPE_LIST,
+} from "@/objects/resource";
 
 export default defineComponent({
   name: "AddResource",
@@ -56,11 +60,11 @@ export default defineComponent({
     return () => (
       <div>
         <ElForm ref={formRef} model={formData} labelWidth="90px">
-          <ElFormItem label="资源类型" required prop="title">
+          <ElFormItem label="资源类型" prop="title">
             <ElRadioGroup v-model={formData.resourceType}>
-              <ElRadio label={1}>页面</ElRadio>
-              <ElRadio label={2}>接口</ElRadio>
-              <ElRadio label={3}>定时任务</ElRadio>
+              {RESOURCE_TYPE_LIST.map((item) => (
+                <ElRadio label={item.id}>{item.name}</ElRadio>
+              ))}
             </ElRadioGroup>
           </ElFormItem>
 

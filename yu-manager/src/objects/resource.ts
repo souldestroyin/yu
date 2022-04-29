@@ -12,6 +12,21 @@ export type ResourceType = RourceFormType & {
     resourceId: number,
 }
 
+export const RESOURCE_TYPE_LIST = [
+    {
+        id: 1,
+        name: '页面'
+    },
+    {
+        id: 2,
+        name: '接口'
+    },
+    {
+        id: 3,
+        name: '定时任务'
+    }
+]
+
 export default class ResourceList {
     moduleId: number
     resourceType: number
