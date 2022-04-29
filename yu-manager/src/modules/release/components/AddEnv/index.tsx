@@ -49,7 +49,7 @@ export default defineComponent({
     };
     return () => (
       <div>
-        <ElForm ref={formRef} model={formData} labelWidth="80px">
+        <ElForm ref={formRef} model={formData} labelWidth="90px">
           <ElFormItem label="环境标题" required prop="envName">
             <ElInput v-model={formData.envName}></ElInput>
           </ElFormItem>

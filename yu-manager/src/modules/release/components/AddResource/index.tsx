@@ -36,11 +36,12 @@ export default defineComponent({
     },
   },
   setup(props) {
+    const isEdit = !!props.moduler;
     const formData = reactive<RourceFormType>({
       moduleId: props.moduleId,
-      resourceType: props.moduler ? props.moduler.resourceType : 1,
-      resourceTitle: props.moduler ? props.moduler.resourceTitle : "",
-      resourcePath: props.moduler ? props.moduler.resourcePath : "",
+      resourceType: isEdit ? props.moduler.resourceType : 1,
+      resourceTitle: isEdit ? props.moduler.resourceTitle : "",
+      resourcePath: isEdit ? props.moduler.resourcePath : "",
     });
     const formRef = ref<FormInstance>();
 
@@ -54,7 +55,12 @@ export default defineComponent({
       if (!isValid) {
         return;
       }
-      props.done(formData);
+
+      if (isEdit) {
+        props.done(formData, props.moduler.resourceId);
+      } else {
+        props.done(formData);
+      }
     };
 
     return () => (

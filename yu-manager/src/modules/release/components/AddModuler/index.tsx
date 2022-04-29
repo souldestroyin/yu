@@ -65,7 +65,7 @@ export default defineComponent({
 
     return () => (
       <div>
-        <ElForm ref={formRef} model={formData} labelWidth="80px">
+        <ElForm ref={formRef} model={formData} labelWidth="90px">
           <ElFormItem label="模块标题" required prop="title">
             <ElInput v-model={formData.title}></ElInput>
           </ElFormItem>

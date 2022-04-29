@@ -12,7 +12,7 @@ import {
   ElCollapse,
   ElCollapseItem,
 } from "element-plus";
-import { CirclePlus } from "@element-plus/icons-vue";
+import { CirclePlus, Delete, Edit, EditPen } from "@element-plus/icons-vue";
 
 // modules
 import ResourceList, {
@@ -23,6 +23,7 @@ import ResourceList, {
 // styles
 import classes from "./style.module.scss";
 import AddResource from "../AddResource";
+import ResourceItem from "../ResourceItem";
 
 export default defineComponent({
   name: "ResourceSection",
@@ -77,17 +78,29 @@ export default defineComponent({
           >
             <ElCollapseItem title="页面" name={1}>
               {pageList.list.map((item) => (
-                <div>{`${item.resourceTitle}: ${item.resourcePath}`}</div>
+                <ResourceItem
+                  resourceItem={item}
+                  editCb={() => {}}
+                  deleteCb={() => {}}
+                ></ResourceItem>
               ))}
             </ElCollapseItem>
             <ElCollapseItem title="接口" name={2}>
               {apiList.list.map((item) => (
-                <div>{`${item.resourceTitle}: ${item.resourcePath}`}</div>
+                <ResourceItem
+                  resourceItem={item}
+                  editCb={() => {}}
+                  deleteCb={() => {}}
+                ></ResourceItem>
               ))}
             </ElCollapseItem>
             <ElCollapseItem title="定时任务" name={3}>
               {settimeList.list.map((item) => (
-                <div>{`${item.resourceTitle}: ${item.resourcePath}`}</div>
+                <ResourceItem
+                  resourceItem={item}
+                  editCb={() => {}}
+                  deleteCb={() => {}}
+                ></ResourceItem>
               ))}
             </ElCollapseItem>
           </ElCollapse>
