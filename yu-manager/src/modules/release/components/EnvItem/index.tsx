@@ -1,6 +1,9 @@
 // tools
 import { defineComponent, ref, PropType, watch, toRef, computed } from "vue";
 
+// hooks
+import { useDialog } from "@/hooks/useDialog";
+
 //components
 import {
   ElButton,
@@ -8,8 +11,13 @@ import {
   ElTable,
   ElTableColumn,
   ElDropdown,
+  ElIcon,
+  ElPopconfirm,
 } from "element-plus";
+import { EditPen, Delete } from "@element-plus/icons-vue";
+
 import AddEnv from "../AddEnv";
+import MoveSeller from "../MoveSeller";
 
 // models
 import { EnvType, EnvBaseType, EnvList } from "@/objects/env";
@@ -17,9 +25,6 @@ import { SellerType } from "@/objects/seller";
 
 // styles
 import classes from "./style.module.scss";
-import { EditPen } from "@element-plus/icons-vue";
-import { useDialog } from "@/hooks/useDialog";
-import MoveSeller from "../MoveSeller";
 
 export default defineComponent({
   name: "EnvItem",
@@ -84,32 +89,56 @@ export default defineComponent({
       props.envList.fetchList();
     };
 
+    const handleConfirmDeleteEnv = () => {
+      props.envList.delete(props.env);
+      props.envList.fetchList();
+    };
+
     return () => {
       return (
         <ElCard class={classes.container} shadow="never">
           {{
             header: () => (
-              <div>
-                {props.env.envName}
-                --版本号
-                {props.env.version}
-                <ElButton
-                  type="text"
-                  icon={EditPen}
-                  onClick={handleClickEditBtn}
-                ></ElButton>
-              </div>
+              <>
+                {`${props.env.envName} -- ${props.env.version}`}
+
+                <span onClick={handleClickEditBtn}>
+                  <ElIcon style="margin-left: 10px; cursor: pointer">
+                    <EditPen />
+                  </ElIcon>
+                </span>
+
+                <ElPopconfirm
+                  title="确认删除该环境？"
+                  confirm-button-text="确认"
+                  confirmButtonType="danger"
+                  cancel-button-text="取消"
+                  onConfirm={handleConfirmDeleteEnv}
+                >
+                  {{
+                    reference: () => (
+                      <ElIcon style="float: right; cursor: pointer">
+                        <Delete />
+                      </ElIcon>
+                    ),
+                  }}
+                </ElPopconfirm>
+              </>
             ),
             default: () => (
               <>
                 <div class={classes.actionLine}>
-                  <ElDropdown v-show={restEnvList.value.length}>
+                  <ElDropdown
+                    v-show={restEnvList.value.length}
+                    disabled={selectedSellerList.value.length === 0}
+                  >
                     {{
                       default: () => (
                         <ElButton
                           type="primary"
                           plain
                           style="margin-right: 12px"
+                          disabled={selectedSellerList.value.length === 0}
                         >
                           迁移卖家至新环境
                         </ElButton>
@@ -129,9 +158,9 @@ export default defineComponent({
                   </ElDropdown>
 
                   <ElButton onClick={handleClickAddBtn}>新增</ElButton>
-                  <ElButton type="danger" plain>
+                  {/* <ElButton type="danger" plain>
                     删除
-                  </ElButton>
+                  </ElButton> */}
 
                   {props.env.isDefault ? (
                     <span class={classes.defaultBtn}>默认环境</span>

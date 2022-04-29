@@ -148,4 +148,6 @@ export class EnvList {
   setDefault(env: EnvType) {
     env.isDefault = true;
   }
+
+  delete(env: EnvType) {}
 }
