@@ -1,0 +1,25 @@
+.container {
+
+    overflow: hidden;
+    height: 30px;
+
+    // &:hover {
+    //     .actionContainer {
+    //         display: block;
+    //     }
+    // }
+}
+
+.actionContainer {
+    // display: none;
+    float: right;
+}
+
+.editBtn {
+    margin-right: 12px;
+}
+
+.deleteBtn {
+    cursor: pointer; 
+    vertical-align: sub;
+}

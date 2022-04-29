@@ -70,7 +70,7 @@ export default defineComponent({
 
     const handleClickEditBtn = () => {
       open({
-        title: "修改环境",
+        title: "编辑环境",
         component: () => (
           <AddEnv
             close={close}

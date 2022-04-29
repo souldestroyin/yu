@@ -37,6 +37,7 @@ export default defineComponent({
   },
   setup(props) {
     const isEdit = !!props.moduler;
+
     const formData = reactive<RourceFormType>({
       moduleId: props.moduleId,
       resourceType: isEdit ? props.moduler.resourceType : 1,
@@ -66,7 +67,7 @@ export default defineComponent({
     return () => (
       <div>
         <ElForm ref={formRef} model={formData} labelWidth="90px">
-          <ElFormItem label="资源类型" prop="title">
+          <ElFormItem label="资源类型" prop="resourceType" required>
             <ElRadioGroup v-model={formData.resourceType}>
               {RESOURCE_TYPE_LIST.map((item) => (
                 <ElRadio label={item.id}>{item.name}</ElRadio>
@@ -74,11 +75,11 @@ export default defineComponent({
             </ElRadioGroup>
           </ElFormItem>
 
-          <ElFormItem label="资源标题" required prop="title">
+          <ElFormItem label="资源标题" required prop="resourceTitle">
             <ElInput v-model={formData.resourceTitle}></ElInput>
           </ElFormItem>
 
-          <ElFormItem label="名称/path" required prop="name">
+          <ElFormItem label="名称/path" required prop="resourcePath">
             <ElInput v-model={formData.resourcePath}></ElInput>
           </ElFormItem>
         </ElForm>

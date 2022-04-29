@@ -18,6 +18,7 @@ import { CirclePlus, Delete, Edit, EditPen } from "@element-plus/icons-vue";
 import ResourceList, {
   RESOURCE_TYPE_LIST,
   RourceFormType,
+  ResourceType,
 } from "@/objects/resource";
 
 // styles
@@ -65,6 +66,22 @@ export default defineComponent({
         ),
       });
     };
+
+    const handleEditResource = (resourceItem: ResourceType) => {
+      open({
+        title: "编辑资源",
+        component: () => (
+          <AddResource
+            moduler={resourceItem}
+            moduleId={props.moduleId}
+            close={close}
+            done={(formData: RourceFormType) => {
+              console.log(formData.resourceType);
+            }}
+          ></AddResource>
+        ),
+      });
+    };
     return () => (
       <div>
         <div>
@@ -80,7 +97,7 @@ export default defineComponent({
               {pageList.list.map((item) => (
                 <ResourceItem
                   resourceItem={item}
-                  editCb={() => {}}
+                  editCb={handleEditResource}
                   deleteCb={() => {}}
                 ></ResourceItem>
               ))}
@@ -89,7 +106,7 @@ export default defineComponent({
               {apiList.list.map((item) => (
                 <ResourceItem
                   resourceItem={item}
-                  editCb={() => {}}
+                  editCb={handleEditResource}
                   deleteCb={() => {}}
                 ></ResourceItem>
               ))}
@@ -98,7 +115,7 @@ export default defineComponent({
               {settimeList.list.map((item) => (
                 <ResourceItem
                   resourceItem={item}
-                  editCb={() => {}}
+                  editCb={handleEditResource}
                   deleteCb={() => {}}
                 ></ResourceItem>
               ))}
