@@ -78,7 +78,7 @@ export default defineComponent({
         <footer>
           {props.moduler && (
             <ElPopconfirm
-              title="确认删除该环境？"
+              title="确认删除该模块？"
               confirm-button-text="确认"
               confirmButtonType="danger"
               cancel-button-text="取消"

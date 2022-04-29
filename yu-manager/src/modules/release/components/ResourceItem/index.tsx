@@ -32,7 +32,7 @@ export default ({
     ></ElButton>
 
     <ElPopconfirm
-      title="确认删除该环境？"
+      title="确认删除该资源？"
       confirm-button-text="确认"
       confirmButtonType="danger"
       cancel-button-text="取消"
