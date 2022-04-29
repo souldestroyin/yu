@@ -1,22 +1,25 @@
 /**1.页面 2.接口 3.定时任务  */
-export type ResourceType = 1 | 2 | 3
+export type ResourceTypeType = 1 | 2 | 3
 
-type ResourceDataType = {
+export type RourceFormType = {
     moduleId: number,
-    resourceId: number,
-    resourceType: ResourceType,
+    resourceType: ResourceTypeType,
     resourceTitle: string,
     resourcePath: string
+}
+
+export type ResourceType = RourceFormType & {
+    resourceId: number,
 }
 
 export default class ResourceList {
     moduleId: number
     resourceType: number
 
-    list: Array<ResourceDataType> = []
+    list: Array<ResourceType> = []
 
 
-    constructor(moduleId: number, resourceType: ResourceType) {
+    constructor(moduleId: number, resourceType: ResourceTypeType) {
         this.moduleId = moduleId
         this.resourceType = resourceType
     }

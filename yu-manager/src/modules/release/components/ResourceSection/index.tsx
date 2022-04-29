@@ -1,6 +1,9 @@
 // tools
 import { defineComponent, PropType, Ref, ref, watch } from "vue";
 
+// hooks
+import { useDialog } from "@/hooks/useDialog";
+
 // components
 import {
   ElButton,
@@ -12,8 +15,11 @@ import {
 import { CirclePlus } from "@element-plus/icons-vue";
 
 // modules
-import ResourceList from "@/objects/resource";
+import ResourceList, { RourceFormType } from "@/objects/resource";
+
+// styles
 import classes from "./style.module.scss";
+import AddResource from "../AddResource";
 
 export default defineComponent({
   name: "ResourceSection",
@@ -39,7 +45,22 @@ export default defineComponent({
       ver.value++;
     });
 
-    const handleClickAddBtn = () => {};
+    const [open, close, loading] = useDialog();
+
+    const handleClickAddBtn = () => {
+      open({
+        title: "新建资源",
+        component: () => (
+          <AddResource
+            moduleId={props.moduleId}
+            close={close}
+            done={(formData: RourceFormType) => {
+              console.log(formData.resourceType);
+            }}
+          ></AddResource>
+        ),
+      });
+    };
     return () => (
       <div>
         <div>

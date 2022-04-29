@@ -1,12 +1,12 @@
 import request from '@/tools/request'
-import { ResourceType } from '../../../objects/resource'
+import { ResourceTypeType } from '../../../objects/resource'
 
 const baseUrl = '/local/releasePage'
 
 
 
 
-export function getResourceList(moduleId: number, resourceType: ResourceType) {
+export function getResourceList(moduleId: number, resourceType: ResourceTypeType) {
     return request({
         url: baseUrl + '/queryResourceList',
         method: 'get',
@@ -25,7 +25,7 @@ export function getResourceList(moduleId: number, resourceType: ResourceType) {
  * @param resourcePath 资源信息 type为1,2 前端命名展示为路径, type为3命名展示为名称
  * @returns 
  */
-export function createResource(moduleId: number, resourceType: ResourceType, resourceTitle: string, resourcePath: string) {
+export function createResource(moduleId: number, resourceType: ResourceTypeType, resourceTitle: string, resourcePath: string) {
     return request({
         url: baseUrl + '/createResource',
         method: 'post',
@@ -39,7 +39,7 @@ export function createResource(moduleId: number, resourceType: ResourceType, res
 }
 
 
-export function updateResource(moduleId: number, resourceId: number, resourceType: ResourceType, resourceTitle: string, resourcePath: string) {
+export function updateResource(moduleId: number, resourceId: number, resourceType: ResourceTypeType, resourceTitle: string, resourcePath: string) {
     return request({
         url: baseUrl + '/updateResource',
         method: 'post',
