@@ -1,4 +1,4 @@
-type ModulerType = {
+export type ModulerType = {
     moduleId: number
     title: string
     name: string

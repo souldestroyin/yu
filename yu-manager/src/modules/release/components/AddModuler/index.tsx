@@ -1,6 +1,13 @@
-import { defineComponent, reactive, ref } from "vue";
+import { defineComponent, PropType, reactive, ref } from "vue";
 import type { FormInstance, FormRules } from "element-plus";
-import { ElMessage, ElFormItem, ElForm, ElInput, ElButton } from "element-plus";
+import {
+  ElPopconfirm,
+  ElFormItem,
+  ElForm,
+  ElInput,
+  ElButton,
+} from "element-plus";
+import { ModulerType } from "@/objects/moduler";
 
 export default defineComponent({
   name: "AddModuler",
@@ -13,11 +20,18 @@ export default defineComponent({
       type: Function,
       required: true,
     },
+    close: {
+      type: Function as PropType<(evt: MouseEvent) => any>,
+      required: true,
+    },
+    moduler: {
+      type: Object as PropType<ModulerType>,
+    },
   },
   setup(props) {
     const formData = reactive({
-      title: "",
-      name: "",
+      title: props.moduler ? props.moduler.title : "",
+      name: props.moduler ? props.moduler.name : "",
     });
     const formRef = ref<FormInstance>();
 
@@ -34,38 +48,25 @@ export default defineComponent({
       props.done(formData.title, formData.name);
     };
 
-    const titleRules = [
-      {
-        trigger: "blur",
-        validator: (rule: any, value: any, callback: any) => {
-          if (value === "") {
-            callback(new Error("模块标题必填"));
-          } else {
-            callback();
-          }
-        },
-      },
-    ];
-
-    const nameRules = [
-      {
-        trigger: "blur",
-        validator: (rule: any, value: any, callback: any) => {
-          if (value === "") {
-            callback(new Error("模块标识必填"));
-          } else if (props.nameList.includes(value)) {
-            callback(new Error("模块标识不可重复"));
-          } else {
-            callback();
-          }
-        },
-      },
-    ];
+    const nameRules = props.moduler
+      ? []
+      : [
+          {
+            trigger: "blur",
+            validator: (rule: any, value: any, callback: any) => {
+              if (props.nameList.includes(value)) {
+                callback(new Error("模块标识不可重复"));
+              } else {
+                callback();
+              }
+            },
+          },
+        ];
 
     return () => (
       <div>
         <ElForm ref={formRef} model={formData} labelWidth="80px">
-          <ElFormItem label="模块标题" rules={titleRules} required prop="title">
+          <ElFormItem label="模块标题" required prop="title">
             <ElInput v-model={formData.title}></ElInput>
           </ElFormItem>
 
@@ -75,7 +76,25 @@ export default defineComponent({
         </ElForm>
 
         <footer>
-          <ElButton type="warning" plain>
+          {props.moduler && (
+            <ElPopconfirm
+              title="确认删除该环境？"
+              confirm-button-text="确认"
+              confirmButtonType="danger"
+              cancel-button-text="取消"
+              // onConfirm={handleConfirmDeleteEnv}
+            >
+              {{
+                reference: () => (
+                  <ElButton type="danger" plain style="float: left">
+                    删除
+                  </ElButton>
+                ),
+              }}
+            </ElPopconfirm>
+          )}
+
+          <ElButton onClick={props.close} plain>
             取消
           </ElButton>
           <ElButton type="primary" onClick={handleClickSubmitBtn}>

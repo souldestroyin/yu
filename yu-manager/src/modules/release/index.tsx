@@ -32,7 +32,7 @@ import EnvSection from "./components/EnvSection";
 import AddModuler from "./components/AddModuler";
 
 // modules
-import ModulerList from "@/objects/moduler";
+import ModulerList, { ModulerType } from "@/objects/moduler";
 import ResourceList from "@/objects/resource";
 
 // styles
@@ -59,6 +59,7 @@ export default defineComponent({
         component: () => (
           <AddModuler
             nameList={modulerList.list.map((moduler) => moduler.name)}
+            close={close}
             done={(title: string, name: string) => {
               modulerList.create(title, name);
               ver.value++;
@@ -70,8 +71,23 @@ export default defineComponent({
       });
     };
 
-    const handleClickTab = (e: Event) => {
-      e.stopPropagation();
+    const handleClickTab = (moduler: ModulerType) => {
+      open({
+        title: "修改模块",
+        component: () => (
+          <AddModuler
+            nameList={modulerList.list.map((moduler) => moduler.name)}
+            moduler={moduler}
+            close={close}
+            done={(title: string, name: string) => {
+              modulerList.create(title, name);
+              ver.value++;
+              loading.value = true;
+              close();
+            }}
+          ></AddModuler>
+        ),
+      });
     };
 
     return () => (
@@ -89,6 +105,7 @@ export default defineComponent({
             v-model={currentModulId.value}
             class={classes.modulerList}
             addable
+            onTab-add={handleClickAddBtn}
           >
             {modulerList.list.map((moduler) => (
               <ElTabPane name={moduler.moduleId} key={moduler.moduleId}>
@@ -98,7 +115,7 @@ export default defineComponent({
                       <span class={classes.labelTitle}>{moduler.title}</span>
 
                       <span
-                        onClick={handleClickTab}
+                        onClick={() => handleClickTab(moduler)}
                         class={
                           moduler.moduleId !== currentModulId.value &&
                           classes.editBtn
@@ -108,22 +125,6 @@ export default defineComponent({
                           <EditPen />
                         </ElIcon>
                       </span>
-
-                      {/* <ElPopconfirm
-                        title="确认删除该环境？"
-                        confirm-button-text="确认"
-                        confirmButtonType="danger"
-                        cancel-button-text="取消"
-                        // onConfirm={handleConfirmDeleteEnv}
-                      >
-                        {{
-                          reference: () => (
-                            <ElIcon>
-                              <Delete />
-                            </ElIcon>
-                          ),
-                        }}
-                      </ElPopconfirm> */}
                     </div>
                   ),
                 }}
@@ -132,7 +133,7 @@ export default defineComponent({
           </ElTabs>
         </ElHeader>
 
-        <ElContainer>
+        <ElContainer class={classes.contentContainer}>
           <ElAside class={classes.left}>
             <ResourceSection
               key={currentModulId.value}

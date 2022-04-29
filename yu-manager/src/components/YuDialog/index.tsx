@@ -41,7 +41,12 @@ export default defineComponent({
     );
 
     return () => (
-      <ElDialog modelValue={true} title={props.title} width={props.width}>
+      <ElDialog
+        modelValue={true}
+        title={props.title}
+        width={props.width}
+        closeOnClickModal={false}
+      >
         <div class={classes.dialogWrap} ref={dialogRef}>
           {props.component()}
         </div>

@@ -16,7 +16,7 @@ export default defineComponent({
         <p>2.是否执行了相关sql</p>
 
         <footer>
-          <ElButton>取消</ElButton>
+          <ElButton plain>取消</ElButton>
           <ElButton onClick={props.handleClickSubmitBtn}>确认</ElButton>
         </footer>
       </div>

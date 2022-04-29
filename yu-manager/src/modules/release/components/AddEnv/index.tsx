@@ -90,7 +90,9 @@ export default defineComponent({
         </ElForm>
 
         <footer>
-          <ElButton onClick={props.close}>取消</ElButton>
+          <ElButton plain onClick={props.close}>
+            取消
+          </ElButton>
           <ElButton type="primary" onClick={handleClickSubmitBtn}>
             确认
           </ElButton>
