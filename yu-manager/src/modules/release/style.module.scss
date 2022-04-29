@@ -16,6 +16,10 @@
         height: 50px;
         margin-bottom: 20px;
     }
+
+    :global(.el-tabs__new-tab) {
+        margin-top: 15px;
+    }
 }
 
 

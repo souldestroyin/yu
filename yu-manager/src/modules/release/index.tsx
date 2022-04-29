@@ -85,7 +85,11 @@ export default defineComponent({
             ></ElButton>
           </div> */}
 
-          <ElTabs v-model={currentModulId.value} class={classes.modulerList}>
+          <ElTabs
+            v-model={currentModulId.value}
+            class={classes.modulerList}
+            addable
+          >
             {modulerList.list.map((moduler) => (
               <ElTabPane name={moduler.moduleId} key={moduler.moduleId}>
                 {{
