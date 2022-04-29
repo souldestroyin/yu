@@ -1,32 +1,41 @@
 .container {
     height: 100%;
-    display: flex;
-    flex-direction: row;
-    overflow: hidden;
 
-
-    .left {
-        flex: 0 0 auto;
-        height: 100%;
+    :global(.el-tabs__item) {
+        padding: 0;
+        height: 50px;
+        line-height: 50px;
     }
 
-    .middle {
-        width: 350px;
-        flex: 0 0 auto;
+    :global(.el-tabs__nav) {
+        height: 50px;
     }
 
-    .right {
-        flex: 1 1 auto;
-        overflow: hidden;
+    .top {
+        background: #fff;
+        height: 50px;
+        margin-bottom: 20px;
     }
 }
 
 
-.actionLine {
-    padding-right: 10px;
-    text-align: right;
+
+.left {
+    margin: 0 20px; 
 }
 
-.modulerList {
-    height: calc(100% - 40px);
+.right:global(.el-main) {
+    padding: 0;
+    margin-right: 20px;
+}
+
+.labelItem {
+    padding: 0 14px 0 20px;
+}
+
+.labelTitle {
+    padding-right: 6px;
+}
+.editBtn {
+    visibility: hidden;
 }

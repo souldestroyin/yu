@@ -13,6 +13,7 @@ import { CirclePlus } from "@element-plus/icons-vue";
 
 // modules
 import ResourceList from "@/objects/resource";
+import classes from "./style.module.scss";
 
 export default defineComponent({
   name: "ResourceSection",
@@ -46,7 +47,10 @@ export default defineComponent({
             新建资源
           </ElButton>
 
-          <ElCollapse v-model={activeNames.value}>
+          <ElCollapse
+            v-model={activeNames.value}
+            class={classes.collapseContainer}
+          >
             <ElCollapseItem title="页面" name={1}>
               {pageList.list.map((item) => (
                 <div>{`${item.resourceTitle}: ${item.resourcePath}`}</div>
